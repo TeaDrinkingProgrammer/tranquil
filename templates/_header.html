@@ -8,14 +8,12 @@
       {% endif %}
       
       <span class="separator">{{ config.extra.nav_separator }}</span>
-      {% if section.path != "/projects/" %}
-      <a href="/blog">blog</a>
-      {% else %}
-      <a href="/projects">projects</a>
+      {% if section.path %}
+      <a href="/blog">{{ section.path | replace(from="/", to="")}}</a>
       {% endif %}
     </nav>
     <div id="btns">
-      {% if section.path != "/projects/" %}
+      {% if section.path and section.path != "/projects/" %}
       {% set rss_icon = load_data(path="static/icon/rss.svg") %}
       {% if section.generate_feed -%}
       <a href="/blog/{{ config.feed_filename }}" aria-label="rss feed">{{ rss_icon | safe }}</a>
@@ -31,7 +29,7 @@
         {{ moon_icon | safe }}
       </button>
 
-      {% if section.path != "/projects/" %}
+      {% if section.path and section.path != "/projects/" %}
       {% set toc_icon = load_data(path="static/icon/toc.svg") %}
       {% if page.extra.toc is defined %}{% set show_toc = page.extra.toc %}{% else %}{% set show_toc = config.extra.toc
       %}{% endif %}
