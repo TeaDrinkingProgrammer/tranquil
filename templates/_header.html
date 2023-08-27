@@ -1,7 +1,12 @@
 <header {% if config.extra.blur_effect %} class="blur" {% endif %}>
   <div id="wrapper">
     <nav>
+      {% if config.extra.home %}
+      <a href="/">{{ config.extra.home }}</a>
+      {% else %}
       <a href="/">{{ config.extra.id }}</a>
+      {% endif %}
+      
       <span class="separator">{{ config.extra.nav_separator }}</span>
       {% if section.path != "/projects/" %}
       <a href="/blog">blog</a>
