@@ -422,6 +422,28 @@ button:focus-visible, a:focus-visible {
   }
 }
 
+/* 404
+  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
+  body.fourofour {
+  
+    #fourofour-wrapper {
+      display:flex;
+      justify-content: center;
+      height: 100vh;
+      font-size: 18px;
+    }
+  
+    main {
+      margin: auto auto;
+      display: flex;
+      flex-direction: column
+    }
+    :is(h1,h2,h3,h4,h5,h6) {
+      margin-left: auto;
+      margin-right: auto;
+    }
+  }
+
 /* homepage
   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
 
