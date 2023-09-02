@@ -1,0 +1,4 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@import url("https://brick.freetls.fastly.net/Lato:400");

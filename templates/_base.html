@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 
-<html lang="{% block lang %}{% endblock lang %}">
+<html class="" lang="{% block lang %}{% endblock lang %}">
 
 <head>
   <meta charset="utf-8">
@@ -11,17 +11,29 @@
   <link rel="icon" type="image/png" sizes="32x32" href="/img/favicon-32x32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/img/favicon-16x16.png">
   <link rel="apple-touch-icon" sizes="180x180" href="/img/apple-touch-icon.png">
-  {% include "_custom_font.html" %}
-  <link rel="stylesheet" href="/main.css">
+  <link href="/styles/styles.css" rel="stylesheet">
+  
   {% block head %}{% endblock head %}
   {% include "_head_extend.html" %}
 </head>
 
-<body class="{% block page %}{% endblock page%}">
-  <script>if (localStorage.getItem('theme') == 'dark') { document.body.classList.add('dark'); const hl = document.querySelector('link#hl'); if (hl) hl.href = '/hl-dark.css'; }</script>
-  {% block content %}{% endblock content %}
-  {% block script %}{% endblock script %}
+<body class="antialiased text-zinc-500 dark:text-zinc-300 bg-white dark:bg-zinc-900 prose-a:underline prose-a:decoration-sky-500 prose-a:decoration-2">
+  <!-- <script>if (localStorage.getItem('theme') == 'dark') { document.body.classList.add('dark');}</script> -->
+  <div class="flex justify-center py-24 p-6">
+    <div class="md:w-2/3">
+      {% block content %}{% endblock content %}
+      {% block script %}{% endblock script %}
+    </div>
+  </div>
   <script src="/js/main.js"></script>
 </body>
 
 </html>
+
+<!-- <style lang="css">
+  body {
+    --main-font: 'Lato', ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+    --code-font: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+    font: main
+  }
+</style> -->

@@ -10,10 +10,10 @@ Enter the directory:
 cd myblog
 ```
 
-Add the serene theme:
+Add the Tranquil theme:
 
 ```sh
-git submodule add -b latest https://github.com/isunjn/serene.git themes/serene
+git submodule add -b latest https://github.com/teadrinkingprogrammer/tranquil.git themes/serene
 ```
 
 The myblog directory now looks like this:
