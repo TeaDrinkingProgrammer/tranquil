@@ -10,15 +10,15 @@ module.exports = {
       // typography: (theme) => ({
       //   DEFAULT: {
       //     css: {
-      //       color: theme('colors.gray.700'),
+      //       color: theme('colors.slate.500'),
       //       h2: {
-      //         color: theme('colors.gray.800'),
+      //         color: theme('colors.slate.500'),
       //       },
       //       h3: {
-      //         color: theme('colors.gray.800'),
+      //         color: theme('colors.slate.500'),
       //       },
       //       strong: {
-      //         color: theme('colors.gray.800'),
+      //         color: theme('colors.slate.500'),
       //       },
       //       a: {
       //         color: theme('colors.green.500'),

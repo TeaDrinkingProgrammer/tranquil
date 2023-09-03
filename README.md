@@ -1,9 +1,7 @@
 ![screenshot](https://github.com/isunjn/serene/blob/main/screenshot.png?raw=true)
 
 <br />
-
-A blog theme for [zola](https://www.getzola.org), simple and clean
-
+A blog theme for [zola](https://www.getzola.org), inspired by Serene, but built with Tailwind
 ## Demo
 
 -  <https://serene-demo-site.vercel.app>
@@ -24,7 +22,6 @@ A blog theme for [zola](https://www.getzola.org), simple and clean
 ## Usage
 
 - Check the [USAGE.md](https://github.com/isunjn/serene/blob/latest/USAGE.md) of `latest` branch
-- Also available in Simplified Chinese: [USAGE-zh_CN.md](https://github.com/isunjn/serene/blob/latest/USAGE-zh_CN.md) (简体中文)
 
 ## Contributing
 

@@ -1,12 +1,12 @@
-name = "serene"
+name = "tranquil"
 description = "A blog theme for zola, simple and clean"
 license = "MIT"
-homepage = "https://github.com/isunjn/serene"
+homepage = "https://github.com/TeaDrinkingProgrammer/tranquil"
 min_version = "0.9.0"
-demo = "https://serene-demo-site.vercel.app"
+# demo = "https://serene-demo-site.vercel.app"
 
 [author]
-name = "isunjn"
-homepage = "https://github.com/isunjn"
+name = "TeaDrinkingProgrammer"
+homepage = "https://github.com/TeaDrinkingProgrammer"
 
 [extra]

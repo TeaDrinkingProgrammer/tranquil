@@ -108,7 +108,8 @@ Also put your avatar picture file `avatar.webp`, webp format is recommended
 │       └── avatar. webp
 ...
 ```
-
+## Tailwind
+npx tailwindcss -i styles/styles.css -o static/styles/styles.css --watch
 ## Configuration
 
 Copy the contents of `myblog/themes/serene/config.example.toml` to `myblog/config.toml`, refer to the comments in the file and Zola's [documentation](https://www.getzola.org/documentation/getting-started/overview/) to modify accordingly

@@ -4,7 +4,7 @@ base_url = "https://example.com"      # Domain name of your website
 title = "xxxx"
 description = "xxxx xxxx xxxx"
 default_language = "en"
-theme = "serene"
+theme = "tranquil"
 output_dir = "public"
 compile_sass = true
 minify_html = true
@@ -18,8 +18,8 @@ highlight_code = true
 highlight_theme = "css"
 extra_syntaxes_and_themes = ["highlight_themes"]
 highlight_themes_css = [
-    { theme = "serene-light", filename = "hl-light.css"},
-    { theme = "serene-dark", filename = "hl-dark.css"},
+    { theme = "tranquil-light", filename = "hl-light.css"},
+    { theme = "tranquil-dark", filename = "hl-dark.css"},
 ]
 render_emoji = false
 external_links_target_blank = false
