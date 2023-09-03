@@ -7,32 +7,34 @@
 
 {% block content %}
 {% include "_header.html" %}
-<div id="blog-wrapper">
-  <main>
-    {% if config.extra.blog_categorized %}
-    {% for category,posts in section.pages | group_by(attribute="taxonomies.categories.0") -%}
-    <div class="category">{{ category }}</div>
-    <div>
-      {% for post in posts %}
-      <a class="post" href="{{ post.permalink }}">
-        <span>{{ post.title }}</span>
-        <span class="date">{{ post.date | date}}</span>
-      </a>
+<div class="flex items-center justify-center">
+  <div class="py-24 p-6 max-w-prose">
+    <main class="flex flex-col gap-5">
+      {% if config.extra.blog_categorized %}
+      {% for category,posts in section.pages | group_by(attribute="taxonomies.categories.0") -%}
+      <h1 class="text-2xl">{{ category }}</h1>
+      <div>
+        {% for post in posts %}
+        <a href="{{ post.permalink }}">
+          <span class="text-white text-lg underline underline-offset-8 decoration-2 decoration-sky-500 dark:decoration-sky-400">{{ post.title }}</span>
+          <span class="text-white text-lg pl-2">{{ post.date | date}}</span>
+        </a>
+        {% endfor %}
+      </div>
       {% endfor %}
-    </div>
-    {% endfor %}
-    {% else %}
-    <div class="post-list">
-      {% for post in section.pages %}
-      <a class="post" href="{{ post.permalink }}">
-        <span>{{ post.title }}</span>
-        <span class="line"></span>
-        <span class="date">{{ post.date | date}}</span>
-      </a>
-      {% endfor %}
-    </div>
-    {% endif %}
-  </main>
-  {% include "_footer.html" %}
+      {% else %}
+      <div class="flex flex-row gap-5">
+        {% for post in section.pages %}
+        <a class="" href="{{ post.permalink }}">
+          <span>{{ post.title }}</span>
+          <span></span>
+          <span>{{ post.date | date}}</span>
+        </a>
+        {% endfor %}
+      </div>
+      {% endif %}
+    </main>
+    {% include "_footer.html" %}
+  </div>
 </div>
 {% endblock content %}

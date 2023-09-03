@@ -1,44 +1,46 @@
-<header {% if config.extra.blur_effect %} class="blur" {% endif %}>
-  <div id="wrapper">
-    <nav>
-      {% if config.extra.home %}
-      <a href="/">{{ config.extra.home }}</a>
-      {% else %}
-      <a href="/">{{ config.extra.id }}</a>
-      {% endif %}
-      
-      <span class="separator">{{ config.extra.nav_separator }}</span>
-      {% if section.path %}
-      <a href="/blog">{{ section.path | replace(from="/", to="")}}</a>
-      {% endif %}
-    </nav>
-    <div id="btns">
-      {% if section.path and section.path != "/projects/" %}
-      {% set rss_icon = load_data(path="static/icon/rss.svg") %}
-      {% if section.generate_feed -%}
-      <a href="/blog/{{ config.feed_filename }}" aria-label="rss feed">{{ rss_icon | safe }}</a>
-      {% elif config.generate_feed -%}
-      <a href="/{{ config.feed_filename }}" aria-label="rss feed">{{ rss_icon | safe }}</a>
-      {% endif %}
-      {% endif %}
+<header {% if config.extra.blur_effect %} class="backdrop-blur-sm" {% endif %}>
+  <div class="bg-stone-50 dark:bg-stone-800 py-2">
+    <div class="flex flex-row justify-between max-w-prose m-auto px-4">
+      <nav>
+        {% if config.extra.home %}
+        <a class="text-xl" href="/">{{ config.extra.home }}</a>
+        {% else %}
+        <a class="text-xl" href="/">{{ config.extra.id }}</a>
+        {% endif %}
+        
+        <span class="text-xl">{{ config.extra.nav_separator }}</span>
+        {% if section.path %}
+        <a class="text-xl" href="/blog">{{ section.path | replace(from="/", to="")}}</a>
+        {% endif %}
+      </nav>
+      <div class="flex flex-row gap-3">
+        {% if section.path and section.path != "/projects/" %}
+        {% set rss_icon = load_data(path="static/icon/rss.svg") %}
+        {% if section.generate_feed -%}
+        <a href="/blog/{{ config.feed_filename }}" aria-label="rss feed">{{ rss_icon | safe }}</a>
+        {% elif config.generate_feed -%}
+        <a href="/{{ config.feed_filename }}" aria-label="rss feed">{{ rss_icon | safe }}</a>
+        {% endif %}
+        {% endif %}
 
-      {% set moon_icon = load_data(path="static/icon/moon.svg") %}
-      {% set sun_icon = load_data(path="static/icon/sun.svg") %}
-      <button id="theme-toggle" aria-label="theme switch" data-moon-icon="{{ moon_icon }}"
-        data-sun-icon="{{ sun_icon }}">
-        {{ moon_icon | safe }}
-      </button>
+        {% set moon_icon = load_data(path="static/icon/moon.svg") %}
+        {% set sun_icon = load_data(path="static/icon/sun.svg") %}
+        <button id="theme-toggle" aria-label="theme switch" data-moon-icon="{{ moon_icon }}"
+          data-sun-icon="{{ sun_icon }}">
+          {{ moon_icon | safe }}
+        </button>
 
-      {% if section.path and section.path != "/projects/" %}
-      {% set toc_icon = load_data(path="static/icon/toc.svg") %}
-      {% if page.extra.toc is defined %}{% set show_toc = page.extra.toc %}{% else %}{% set show_toc = config.extra.toc
-      %}{% endif %}
-      {% if show_toc and page %}
-      <button id="toc-toggle" aria-label="table of content">
-        {{ toc_icon | safe }}
-      </button>
-      {% endif %}
-      {% endif %}
+        {% if section.path and section.path != "/projects/" %}
+        {% set toc_icon = load_data(path="static/icon/toc.svg") %}
+        {% if page.extra.toc is defined %}{% set show_toc = page.extra.toc %}{% else %}{% set show_toc = config.extra.toc
+        %}{% endif %}
+        {% if show_toc and page %}
+        <button id="toc-toggle" aria-label="table of content">
+          {{ toc_icon | safe }}
+        </button>
+        {% endif %}
+        {% endif %}
+      </div>
     </div>
   </div>
 </header>

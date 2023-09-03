@@ -19,14 +19,8 @@
 
 <body class="antialiased text-slate-700 dark:text-slate-300 bg-white dark:bg-stone-900">
   <!-- <script>if (localStorage.getItem('theme') == 'dark') { document.body.classList.add('dark');}</script> -->
-  <div class="flex items-center justify-center">
-    <div class="py-24 p-6 max-w-prose">
-      <div class="">
-        {% block content %}{% endblock content %}
-        {% block script %}{% endblock script %}
-      </div>
-    </div>
-  </div>
+  {% block content %}{% endblock content %}
+  {% block script %}{% endblock script %}
   <script src="/js/main.js"></script>
 </body>
 
