@@ -1,6 +1,6 @@
 <header {% if config.extra.blur_effect %} class="backdrop-blur-sm" {% endif %}>
-  <div class="bg-stone-50 dark:bg-stone-800 py-2">
-    <div class="flex flex-row justify-between max-w-prose m-auto px-4">
+  <div class="bg-stone-300 dark:bg-stone-700 py-2">
+    <div class="flex flex-row justify-between max-w-prose m-auto px-5">
       <nav>
         {% if config.extra.home %}
         <a class="text-xl" href="/">{{ config.extra.home }}</a>
@@ -29,17 +29,6 @@
           data-sun-icon="{{ sun_icon }}">
           {{ moon_icon | safe }}
         </button>
-
-        {% if section.path and section.path != "/projects/" %}
-        {% set toc_icon = load_data(path="static/icon/toc.svg") %}
-        {% if page.extra.toc is defined %}{% set show_toc = page.extra.toc %}{% else %}{% set show_toc = config.extra.toc
-        %}{% endif %}
-        {% if show_toc and page %}
-        <button id="toc-toggle" aria-label="table of content">
-          {{ toc_icon | safe }}
-        </button>
-        {% endif %}
-        {% endif %}
       </div>
     </div>
   </div>

@@ -71,7 +71,7 @@ description = "My blog site."
 sort_by = "date"
 template = "blog.html"
 page_template = "post.html"
-insert_anchor_links = "right"
+insert_anchor_links = "left"
 generate_feed = true
 
 [extra]
@@ -110,6 +110,7 @@ Also put your avatar picture file `avatar.webp`, webp format is recommended
 ```
 ## Tailwind
 npx tailwindcss -i styles/styles.css -o static/styles/styles.css --watch
+
 ## Configuration
 
 Copy the contents of `myblog/themes/serene/config.example.toml` to `myblog/config.toml`, refer to the comments in the file and Zola's [documentation](https://www.getzola.org/documentation/getting-started/overview/) to modify accordingly
