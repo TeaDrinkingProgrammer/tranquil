@@ -13,7 +13,7 @@
       <div class="flex flex-col md:flex-row gap-2">
         <span>{{ config.extra.name }}</span>
         {% if config.extra.display_id -%}
-        <span>@{{ config.extra.id }}</span>
+        <span class="text-sky-600 dark:text-sky-300">@{{ config.extra.id }}</span>
         {% endif -%}
       </div>
       <div> {{ config.extra.bio }} </div>
@@ -21,9 +21,9 @@
   </section>
   <section class="flex flex-row justify-between py-4">
     <div class="flex flex-row gap-3">
-      <a class="underline " href="/blog">blog</a>
+      <a class="text-white text-lg underline underline-offset-8 decoration-2 decoration-sky-500 dark:decoration-sky-400" href="/blog">blog</a>
       {% if config.extra.projects_page -%}
-      <a href="/projects">projects</a>
+      <a class="text-white text-lg underline underline-offset-8 decoration-2 decoration-sky-500 dark:decoration-sky-400" href="/projects">projects</a>
       {% endif -%}
     </div>
     <div class="flex flex-row gap-1">
@@ -41,7 +41,7 @@
       </button>
     </div>
   </section>
-  <section class="prose prose-slate dark:prose-invert">
+  <section class="prose prose-slate dark:prose-invert prose-a:underline prose-a:underline-offset-4 prose-a:decoration-2 prose-a:decoration-sky-500 prose-a:dark:decoration-sky-400">
     {{ section.content | trim | safe }}
   </section>
 </main>
