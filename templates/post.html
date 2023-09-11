@@ -60,7 +60,7 @@
           <div class="flex gap-2">
             {% for tag in page.taxonomies.tags -%}
             {% set tag_slugify = tag | slugify -%}
-            <a class="text-black dark:text-white underline underline-offset-4 decoration-2 decoration-sky-500 dark:decoration-sky-400" href="{{ config.base_url ~ '/tags/' ~ tag_slugify }}"># {{ tag }}</a>
+            <a class="{{ tl_link }}" href="{{ config.base_url ~ '/tags/' ~ tag_slugify }}"># {{ tag }}</a>
             {%- endfor %}
           </div>
           {% endif %}
@@ -87,12 +87,12 @@
         <ul class="flex flex-col gap-3">
           {% for h2 in page.toc %}
           <li>
-            <a class="text-black dark:text-white text-xl underline underline-offset-8 decoration-2 decoration-sky-500 dark:decoration-sky-400" href="#{{ h2.id | safe }}">{{ h2.title }}</a>
+            <a class="text-black dark:text-white text-xl underline underline-offset-8 decoration-1 hover:decoration-2 decoration-sky-500 dark:decoration-sky-400" href="#{{ h2.id | safe }}">{{ h2.title }}</a>
             {% if h2.children %}
             <ul class="flex flex-col gap-2 pl-2 pt-3">
               {% for h3 in h2.children %}
               <li>
-                <a class="dark:text-white text-lg underline underline-offset-4 decoration-2 decoration-sky-500 dark:decoration-sky-400" href="#{{ h3.id | safe }}">{{ h3.title }}</a>
+                <a class="{{ tl_link }}" href="#{{ h3.id | safe }}">{{ h3.title }}</a>
               </li>
               {% endfor %}
             </ul>
