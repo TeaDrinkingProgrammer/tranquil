@@ -1,0 +1,11 @@
+{
+  "name": "tranquil-demo",
+  "devDependencies": {
+    "@tailwindcss/typography": "^0.5.10",
+    "install": "^0.13.0",
+    "tailwindcss": "^3.3.3"
+  },
+  "scripts": {
+    "tl": "bun x tailwindcss -i styles/styles.css -o static/styles/styles.css --watch"
+  }
+}
