@@ -10,10 +10,16 @@ if (localStorage.getItem("theme") == "dark") toggleTheme("dark");
 themeToggle.addEventListener('click', () => toggleTheme(localStorage.getItem("theme") == "dark" ? "light" : "dark"));
 preferDark.addEventListener("change", e => toggleTheme(e.matches ? "dark" : "light"));
 
+if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+  document.documentElement.classList.add('dark')
+} else {
+  document.documentElement.classList.remove('dark')
+}
+
 function toggleTheme(theme) {
-  if (theme == "dark") document.body.classList.add('dark'); else document.body.classList.remove('dark');
-  if (hlLink) hlLink.href = `/hl-${theme}.css`;
-  themeToggle.innerHTML = theme == "dark" ? themeToggle.dataset.sunIcon : themeToggle.dataset.moonIcon;
+  if (theme === "dark") document.documentElement.classList.add('dark'); else document.documentElement.classList.remove('dark');
+  // if (hlLink) hlLink.href = `/hl-${theme}.css`;
+  themeToggle.innerHTML = theme === "dark" ? themeToggle.dataset.sunIcon : themeToggle.dataset.moonIcon;
   localStorage.setItem("theme", theme);
   toggleGiscusTheme(theme);
 }
@@ -29,9 +35,10 @@ function initGiscusTheme() {
   window.removeEventListener('message', initGiscusTheme);
 }
 
-/* post page */
 
-if (document.body.classList.contains('post')) {
+/* post page */
+if (document.getElementById('post') !== null) {
+  
   /* outdate alert */
   const alert = document.querySelector('#outdate_alert');
   if (alert) {
@@ -46,36 +53,6 @@ if (document.body.classList.contains('post')) {
       alert.classList.remove('hidden');
     }
   }
-  /* toc toggle */
-  const tocToggle = document.querySelector('#toc-toggle');
-  if (tocToggle) {
-    const aside = document.querySelector('aside');
-    tocToggle.addEventListener('click', () => {
-      tocToggle.classList.toggle('active');
-      aside.classList.toggle('shown');
-    });
-  }
-  /* toc active indicator */
-  const indicateToc = () => {
-    const toc = document.querySelector('aside nav');
-    if (!toc) return;
-    const headers = document.querySelectorAll('h2, h3');
-    const tocMap = new Map();
-    headers.forEach(header => tocMap.set(header, toc.querySelector(`a[href="#${header.id}"]`)));
-    let actived = null;
-    const observe = (entries) => entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        const target = tocMap.get(entry.target);
-        if (target == actived) return;
-        if (actived) actived.classList.remove('active');
-        target.classList.add('active');
-        actived = target;
-      }
-    });
-    const observer = new IntersectionObserver(observe, { rootMargin: '-9% 0px -90% 0px' });
-    headers.forEach(header => observer.observe(header));
-  };
-  indicateToc();
   /* code copy button */
   const addCopyBtns = () => {
     const cfg = document.querySelector('#copy-cfg');

@@ -28,7 +28,7 @@
             <a class="{{ tl_link }}" href="/projects">projects</a>
         {% endif -%}
       </div>
-      <div class="flex flex-row gap-1">
+      <div class="flex flex-row gap-2 h-6">
         {% for link in config.extra.links -%}
           <a class="{{ tl_link }}" href="{{ link.url }}" aria-label="{{ link.name }}" target="_blank" rel='noreferrer noopener'>
             {% set icon_path = "static/icon/" ~ link.icon ~ ".svg" %}
@@ -38,7 +38,7 @@
         {% endfor %}
         {% set moon_icon = load_data(path="static/icon/moon.svg") %}
         {% set sun_icon = load_data(path="static/icon/sun.svg") %}
-        <button aria-label="theme switch" data-moon-icon="{{ moon_icon }}" data-sun-icon="{{ sun_icon }}">
+        <button id="theme-toggle" aria-label="theme switch" data-moon-icon="{{ moon_icon }}" data-sun-icon="{{ sun_icon }}">
           {{ moon_icon | safe }}
         </button>
       </div>

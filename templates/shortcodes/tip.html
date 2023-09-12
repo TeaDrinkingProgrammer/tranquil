@@ -1,9 +1,10 @@
-<blockquote class="callout tip">
+<blockquote>
+    !tip
     {% set icon = load_data(path="static/icon/tip.svg") %}
-    <div class="icon">
+    <div>
         {{ icon | safe }}
     </div>
-    <div class="content">
+    <div>
         {% if header %}
         <p><strong>{{ header }}</strong></p>
         {% endif %}

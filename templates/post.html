@@ -43,7 +43,7 @@
     <div style="display: none;" data-copy-icon="{{ copy_icon }}" data-check-icon="{{ check_icon }}"></div>
     {% endif %}
     {% set backlink_icon = load_data(path="static/icon/backlink.svg") %}
-    <article data-backlink-icon="{{ backlink_icon }}">
+    <article id="post" data-backlink-icon="{{ backlink_icon }}">
       <section aria-label="Article Info" class="flex flex-col pt-7 gap-4 mb-10">
         <h1 class="text-2xl">{{ page.title }}</h1>
         <div class="flex flex-row justify-between">

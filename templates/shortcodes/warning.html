@@ -1,9 +1,10 @@
-<blockquote class="callout warning">
+<blockquote>
+    !warning
     {% set icon = load_data(path="static/icon/warning.svg") %}
-    <div class="icon">
+    <div>
         {{ icon | safe }}
     </div>
-    <div class="content">
+    <div>
         {% if header %}
         <p><strong>{{ header }}</strong></p>
         {% endif %}

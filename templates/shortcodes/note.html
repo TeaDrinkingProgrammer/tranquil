@@ -1,9 +1,9 @@
-<blockquote class="callout note">
+<blockquote class="not-prose text-black dark:text-white p-2 outline outline-2 outline-slate-500 dark:outline-slate-600">
     {% set icon = load_data(path="static/icon/note.svg") %}
-    <div class="icon">
+    <div>
         {{ icon | safe }}
     </div>
-    <div class="content">
+    <div>
         {% if header %}
         <p><strong>{{ header }}</strong></p>
         {% endif %}

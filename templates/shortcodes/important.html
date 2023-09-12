@@ -1,9 +1,10 @@
-<blockquote class="callout important">
+<blockquote>
+    !important
     {% set icon = load_data(path="static/icon/important.svg") %}
-    <div class="icon">
+    <div>
         {{ icon | safe }}
     </div>
-    <div class="content">
+    <div>
         {% if header %}
         <p><strong>{{ header }}</strong></p>
         {% endif %}

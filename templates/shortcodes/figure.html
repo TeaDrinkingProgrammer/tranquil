@@ -1,7 +1,7 @@
-<figure>
+<figure class="w-[65ch]">
     <img src="{{ src }}" {% if alt %} alt="{{ alt }}"{% endif %}>
     {% if via %}
-    <figcaption><a href="{{via}}">via</a></figcaption>
+    <figcaption class="flex justify-center italic"><a href="{{via}}">via</a></figcaption>
     {% else %}
     <figcaption>{{ caption }}</figcaption>
     {% endif %}
