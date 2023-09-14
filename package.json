@@ -2,10 +2,17 @@
   "name": "tranquil-demo",
   "devDependencies": {
     "@tailwindcss/typography": "^0.5.10",
+    "eslint": "^8.49.0",
+    "eslint-plugin-tailwindcss": "^3.13.0",
     "install": "^0.13.0",
     "tailwindcss": "^3.3.3"
   },
   "scripts": {
-    "tl": "bun x tailwindcss -i styles/styles.css -o static/styles/styles.css --watch"
+    "tw": "bun x tailwindcss -i styles/styles.css -o static/styles/styles.css --watch",
+    "lint": "bun x eslint --ext .html --ext .js . --fix"
+  },
+  "dependencies": {
+    "eslint-plugin-html": "^7.1.0",
+    "prettier-plugin-django": "^0.5.8"
   }
 }
