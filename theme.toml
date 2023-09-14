@@ -1,4 +1,5 @@
 name = "tranquil"
+version = 0.1
 description = "A blog theme for zola, simple and clean"
 license = "MIT"
 homepage = "https://github.com/TeaDrinkingProgrammer/tranquil"
