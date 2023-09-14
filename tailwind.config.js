@@ -3,7 +3,7 @@ const defaultTheme = require('tailwindcss/defaultTheme')
 const plugin = require('tailwindcss/plugin');
 
 module.exports = {
-  content: ["./templates/**/*.html", "./themes/**/*.html",  "./themes/**/*.html", "./static/styles/custom-styles.css"],
+  content: ["./templates/**/*.html", "./themes/**/*.html",  "./themes/**/*.html", "./static/styles/custom-styles.css", "./static/icon/*.svg"],
   darkMode: 'class',
   theme: {
     fontFamily: {
