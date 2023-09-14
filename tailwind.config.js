@@ -1,5 +1,7 @@
 /** @type {import('tailwindcss').Config} */
 const defaultTheme = require('tailwindcss/defaultTheme')
+const plugin = require('tailwindcss/plugin');
+
 module.exports = {
   content: ["./templates/**/*.html", "./themes/**/*.html",  "./themes/**/*.html"],
   darkMode: 'class',
@@ -35,5 +37,10 @@ module.exports = {
   variants: {},
   plugins: [
       require('@tailwindcss/typography'),
+      plugin(function({ addBase }) {
+        addBase({
+           'html': { fontSize: "13px" },
+         })
+       }),
   ]
 };
