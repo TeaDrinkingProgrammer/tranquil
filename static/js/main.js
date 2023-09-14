@@ -1,5 +1,3 @@
-import { Lightense } from "./lightense.min";
-
 /* dark mode */
 const themeToggle = document.querySelector("#theme-toggle");
 const preferDark = window.matchMedia("(prefers-color-scheme: dark)");

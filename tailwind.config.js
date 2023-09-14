@@ -3,7 +3,7 @@ const defaultTheme = require('tailwindcss/defaultTheme')
 const plugin = require('tailwindcss/plugin');
 
 module.exports = {
-  content: ["./templates/**/*.html", "./themes/**/*.html",  "./themes/**/*.html"],
+  content: ["./templates/**/*.html", "./themes/**/*.html",  "./themes/**/*.html", "./static/styles/custom-styles.css"],
   darkMode: 'class',
   theme: {
     fontFamily: {
@@ -39,7 +39,7 @@ module.exports = {
       require('@tailwindcss/typography'),
       plugin(function({ addBase }) {
         addBase({
-           'html': { fontSize: "13px" },
+          //  'html': { fontSize: "16px" },
          })
        }),
   ]
