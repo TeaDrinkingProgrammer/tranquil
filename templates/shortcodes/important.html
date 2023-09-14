@@ -1,13 +1,14 @@
-<blockquote>
-    !important
-    {% set icon = load_data(path="static/icon/important.svg") %}
-    <div>
-        {{ icon | safe }}
-    </div>
-    <div>
-        {% if header %}
-        <p><strong>{{ header }}</strong></p>
-        {% endif %}
-        {{ body | markdown | safe }}
-    </div>
-</blockquote>
+<div class="not-prose py-2">
+    <blockquote class="flex flex-row row gap-2 text-black dark:text-white p-2 outline outline-3 outline-stone-500 dark:outline-stone-600">
+        {% set icon = load_data(path="static/icon/important.svg") %}
+        <div>
+            {{ icon | safe }}
+        </div>
+        <div>
+            {% if header %}
+            <p><strong>{{ header }}</strong></p>
+            {% endif %}
+            {{ body | markdown | safe }}
+        </div>
+    </blockquote>
+</div>
