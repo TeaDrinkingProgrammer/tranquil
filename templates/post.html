@@ -35,7 +35,7 @@
 
 {% block content %}
 {% include "_header.html" %}
-<div class="flex justify-center items-center">
+<div class="flex justify-center items-center w-full">
   <main class="max-w-prose px-4">
     {% if page.extra.copy is defined %}{% set allow_copy = page.extra.copy %}{% else %}{% set allow_copy = config.extra.copy %}{% endif %}
     {% if allow_copy %}
@@ -44,7 +44,7 @@
     <div style="display: none;" data-copy-icon="{{ copy_icon }}" data-check-icon="{{ check_icon }}"></div>
     {% endif %}
     {% set backlink_icon = load_data(path="static/icon/backlink.svg") %}
-    <article id="post" data-backlink-icon="{{ backlink_icon }}">
+    <article class="flex flex-col" id="post" data-backlink-icon="{{ backlink_icon }}">
       <section aria-label="Article Info" class="flex flex-col pt-7 gap-4 mb-10">
         <h1 class="text-2xl">{{ page.title }}</h1>
         <div class="flex flex-row justify-between">
