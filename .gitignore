@@ -17,3 +17,6 @@ static/hl-dark.css
 # Bun
 node_modules
 bun.lockb
+yarn.lock
+package-lock.json
+pnpm-lock.yaml
