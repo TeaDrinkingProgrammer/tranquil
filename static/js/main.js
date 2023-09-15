@@ -1,15 +1,16 @@
 /* dark mode */
-const themeToggle = document.querySelector("#theme-toggle");
-const preferDark = window.matchMedia("(prefers-color-scheme: dark)");
-const LIGHT_THEME = 0;
-const DARK_THEME = 1;
+const LIGHT_THEME = "light";
+const DARK_THEME = "dark";
 
-if (!localStorage.getItem("theme") && preferDark.matches) toggleTheme(DARK_THEME);
-if (localStorage.getItem("theme") == DARK_THEME) toggleTheme(DARK_THEME);
+const themeToggle = document.querySelector("#theme-toggle");
+const currentTheme = localStorage.getItem("theme")
+const preferDark = window.matchMedia("(prefers-color-scheme: dark)");
+
+toggleGiscusTheme(currentTheme)
 
 function toggleTheme(theme) {
-  if (theme === DARK_THEME) document.documentElement.classList.add("dark");
-  else document.documentElement.classList.remove("dark");
+  if (theme === DARK_THEME) document.documentElement.classList.add(DARK_THEME);
+  else document.documentElement.classList.remove(DARK_THEME);
   themeToggle.innerHTML =
     theme === DARK_THEME
       ? themeToggle.dataset.sunIcon
