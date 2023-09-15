@@ -9,9 +9,11 @@
   },
   "scripts": {
     "tw": "bun x tailwindcss -i styles/styles.css -o static/styles/styles.css --watch",
-    "lint": "bun x eslint --ext .html --ext .js . --fix"
+    "lint": "bun x eslint --ext .html --ext .js . --fix",
+    "partytown": "bun x partytown copylib static/~partytown"
   },
   "dependencies": {
+    "@builder.io/partytown": "^0.8.1",
     "eslint-plugin-html": "^7.1.0",
     "prettier-plugin-django": "^0.5.8"
   }
