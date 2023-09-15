@@ -9,7 +9,7 @@
 <div class="flex items-center justify-center">
   <main class="py-24 p-6 max-w-prose">
     <section class="flex flex-row gap-3">
-      <img class="h-24" src="./{{ config.extra.avatar }}" alt="avatar">
+      <img class="h-24" src="{{ config.base_url }}/{{ config.extra.avatar }}" alt="avatar">
       <div class="flex flex-col gap-2" id="text">
         <div class="flex flex-col md:flex-row gap-2">
           <span>{{ config.extra.name }}</span>
@@ -22,10 +22,10 @@
     </section>
     <section class="flex flex-row justify-between py-4">
       <div class="flex flex-row gap-3">
-        <a class="text-lg {{ tl_link }}" href="/blog">blog</a>
+        <a class="text-lg {{ tl_link }}" href="{{ config.base_url }}/blog">blog</a>
         
         {% if config.extra.projects_page -%}
-            <a class="text-lg {{ tl_link }}" href="/projects">projects</a>
+            <a class="text-lg {{ tl_link }}" href="{{ config.base_url }}/projects">projects</a>
         {% endif -%}
       </div>
       <div class="flex flex-row gap-2 h-6">

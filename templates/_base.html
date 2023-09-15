@@ -10,10 +10,10 @@ decoration-1 hover:decoration-2 decoration-sky-500 dark:decoration-sky-400" %}
   <meta name="color-scheme" content="light dark">
   <title>{% block title %}{% endblock title %}</title>
   <meta name="description" content="{% block desc %}{% endblock desc %}">
-  <link rel="icon" type="image/png" sizes="32x32" href="./img/favicon-32x32.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="./img/favicon-16x16.png">
-  <link rel="apple-touch-icon" sizes="180x180" href="./img/apple-touch-icon.png">
-  <link href="./styles/styles.css" rel="stylesheet">
+  <link rel="icon" type="image/png" sizes="32x32" href="{{ config.base_url }}/img/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="{{ config.base_url }}/img/favicon-16x16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="{{ config.base_url }}/img/apple-touch-icon.png">
+  <link href="{{ config.base_url }}/styles/styles.css" rel="stylesheet">
   
   {% block head %}{% endblock head %}
   {% include "_head_extend.html" %}
@@ -22,7 +22,7 @@ decoration-1 hover:decoration-2 decoration-sky-500 dark:decoration-sky-400" %}
 <body class="antialiased text-slate-700 dark:text-slate-300 bg-white dark:bg-stone-900">
   {% block content %}{% endblock content %}
   {% block script %}{% endblock script %}
-  <script src="./js/main.js"></script>
+  <script src="{{ config.base_url }}/js/main.js"></script>
 </body>
 
 </html>
