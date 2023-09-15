@@ -1,4 +1,4 @@
-If you haven't created a zola site yet, create a new zola site with the following command (assuming your site is called `myblog`):
+If you haven't created a Zola site yet, create a new Zola site with the following command (assuming your site is called `myblog`):
 
 ```sh
 zola init myblog
@@ -13,7 +13,7 @@ cd myblog
 Add the Tranquil theme:
 
 ```sh
-git submodule add -b latest https://github.com/teadrinkingprogrammer/tranquil.git themes/serene
+git submodule add -b latest https://github.com/teadrinkingprogrammer/tranquil.git themes/tranquil
 ```
 
 The myblog directory now looks like this:
@@ -25,7 +25,7 @@ The myblog directory now looks like this:
 ├── static/
 ├── templates/
 └── themes/
-    └── serene/
+    └── tranquil/
 ```
 
 Create `myblog/content/_index.md` and `myblog/content/blog/_index.md`
@@ -44,7 +44,7 @@ If you want to display the projects page, also create `myblog/content/projects/_
 ├── static/
 ├── templates/
 └── themes/
-    └── serene/
+    └── tranquil/
 ```
 
 Modify the content of these files as follows:
@@ -94,9 +94,9 @@ lang = 'en'
 +++
 ```
 
-Create a new directory `img` under `myblog/static`, place favicon related files, you can use tools like [favicon.io](https://favicon.io/favicon-converter/) to generate
+Create a new directory `img` under `myblog/static` and place your favicon. You can use tools like [favicon.io](https://favicon.io/favicon-converter/) to generate it.
 
-Also put your avatar picture file `avatar.webp`, webp format is recommended
+Also put your avatar picture file `avatar.webp` in this folder, preferably in webp format.
 
 ```
 ...
@@ -108,32 +108,49 @@ Also put your avatar picture file `avatar.webp`, webp format is recommended
 │       └── avatar. webp
 ...
 ```
-## Tailwind
-npx tailwindcss -i styles/styles.css -o static/styles/styles.css --watch
 
 ## Configuration
 
-Copy the contents of `myblog/themes/serene/config.example.toml` to `myblog/config.toml`, refer to the comments in the file and Zola's [documentation](https://www.getzola.org/documentation/getting-started/overview/) to modify accordingly
+Copy the contents of `myblog/themes/tranquil/config.example.toml` to `myblog/config.toml`, refer to the comments in the file and Zola's [documentation](https://www.getzola.org/documentation/getting-started/overview/) to modify accordingly.
 
-### Icon
+### Icons
 
-- Copy `myblog/themes/serene/static/icon` directory to `myblog/static/icon`, the icon value in `links` is the file name of the svg file in it, without the `.svg` suffix
+- Copy `myblog/themes/tranquil/static/icon` directory to `myblog/static/icon`.
+
+To change the Icons for links (like social media), place a 
 
 - Find the svg file of the icon you want, modify its width and height to 24, and the color to currentColor:
 
   `... width="24" height="24" ... fill="currentColor" ...`
 
-- The default icons came from [Remix Icon](https://remixicon.com/)
+- The default icons are from [HeroIcons](https://heroicons.com/) and [Simple Icons](https://simpleicons.org). The logos from Simple Icons were modified with ```fill="currentColor" class="w-6 h-6"``` at the end of their SVG tag (check the Github icon for more info).
 
 ### Code highlight
 
-- Copy `myblog/themes/serene/highlight_themes` directory to `myblog/highlight_themes`.
+- Copy `myblog/themes/tranquil/highlight_themes` directory to `myblog/highlight_themes`.
 
-- If you set `highlight_theme` in `config.toml` to one of zola's [built-in highlight themes](https://www.getzola.org/documentation/getting-started/configuration/#syntax-highlighting), you will get that theme used in both light and dark mode.
+- If you set `highlight_theme` in `config.toml` to one of Zola's [built-in highlight themes](https://www.getzola.org/documentation/getting-started/configuration/#syntax-highlighting), you will get that theme used in both light and dark mode.
 
-- By default serene use different themes for light/dark modes, configured by `highlight_theme`, `extra_syntaxes_and_themes` and `highlight_themes_css`. The default highlight theme `serene-light` `serene-dark` is a modified version of [Tomorrow](https://github.com/ChrisKempson/Tomorrow-Theme) theme.
+- By default Tranquil use different themes for light/dark modes, configured by `highlight_theme`, `extra_syntaxes_and_themes` and `highlight_themes_css`. The default highlight theme `tranquil-light` `tranquil-dark` is a modified version of Serenes version of [Tomorrow](https://github.com/ChrisKempson/Tomorrow-Theme) with the background changed to work with Tailwind.
 
-- If you want a different theme, find the `.tmTheme` TextMate file of your theme, put it in `myblog/static/highlight_themes`, and then modify the `theme` value of `highlight_themes_css` to that file's name, without `.tmTheme` extension. This will generate a `hl-light.css` and a `hl-dark.css` file in `myblog/static/`, you may have to delete them first before you change the `theme` value, so zola can re-generate.
+- If you want a different theme, find the `.tmTheme` TextMate file of your theme, put it in `myblog/static/highlight_themes`, and then modify the `theme` value of `highlight_themes_css` to that file's name, without `.tmTheme` extension. This will generate a `hl-light.css` and a `hl-dark.css` file in `myblog/static/`, you may have to delete them first before you change the `theme` value, so Zola can re-generate. To make the theme work play nice with Tailwind, you could change the background colors to one of the values of [the default pallet](https://tailwindcss.com/docs/customizing-colors#default-color-palette). The default theme uses the stone theme.
+
+```xml
+...
+	<string>Tomorrow Night</string>
+	<key>settings</key>
+	<array>
+		<dict>
+			<key>settings</key>
+			<dict>
+				<key>background</key>
+        <string>#292524</string> <!-- This is the background value -->
+				<key>caret</key>
+				<string>#AEAFAD</string>
+				<key>foreground</key>
+				<string>#C5C8C6</string>
+...
+```
 
 - You can find some TextMate themes on [this website](https://tmtheme-editor.glitch.me/).
 
@@ -141,13 +158,13 @@ Copy the contents of `myblog/themes/serene/config.example.toml` to `myblog/confi
 
 - You can add rss to your site, Zola's default feed file is located in the root directory of the site, set `generate_feed = true` in `config.toml`, `feed_filename` can be set to `atom.xml` or `rss.xml ` , corresponding to two different rss file standards, set `generate_feed = false` in `myblog/content/blog/_index.md`
 
-- The serene theme looks more like a personal website, the posts are in the `/blog` directory, you may want the feed file to be in the `/blog` directory instead of the root directory, which requires you to set `generate_feed = false ` `feed_filename = "feed.xml"` in `config.toml`, and set `generate_feed = true` in `myblog/content/blog/_index.md`
+- The Tranquil theme looks more like a personal website, the posts are in the `/blog` directory, you may want the feed file to be in the `/blog` directory instead of the root directory, which requires you to set `generate_feed = false ` `feed_filename = "feed.xml"` in `config.toml`, and set `generate_feed = true` in `myblog/content/blog/_index.md`
 
 - `feed.xml` uses `title` and `description` from `myblog/content/blog/_index.md`, the other two use `config.toml`
 
 ### Projects page
 
-- Serene has a projects page where you can showcase your projects, products, etc.
+- Tranquil has a projects page where you can showcase your projects, products, etc.
 
 - Set `projects_page = true` in `config.toml`, create a new `data.toml` under `myblog/content/projects`, add projects information in it, the format is as follows:
 
@@ -173,15 +190,15 @@ Copy the contents of `myblog/themes/serene/config.example.toml` to `myblog/confi
 
 ### Outdated alert
 
-- If one of your posts has strong timeliness, you can set an outdated alert to be displayed on the page after certain days
+- If one of your posts quickly becomes outdated, you can set an outdated alert to be displayed on the page after certain days
 
-- `outdate_alert` and `outdate_alert_days` in `config.toml` set the default whether to be outdated and how many days to be outdated. These two can also be configured on a separate post, you can set `outdate_alert` in `config.toml` to `false`, and then enable it separately in the front matter of time-sensitive posts
+- `outdate_alert` and `outdate_alert_days` in `config.toml` set the default values for whether to show an outdated warning and when respectably. The values can be overriden on individual posts. This is done by setting `outdate_alert` in `config.toml` to `false`, and then enable it separately in the front matter of time-sensitive posts.
 
 - `outdate_alert_text_before` and `outdate_alert_text_after` are the specific content of the alert, before and after the number of days respectively
 
 ### Comments
 
-- Serene supports using [giscus](https://giscus.app) as the comment system
+- Tranquil supports using [giscus](https://giscus.app) to enable comments.
 
 - To enable it, you need to create `myblog/templates/_giscus_script.html` and put the script configured on the giscus website into it, then change the value of `data-theme` to `https://<your-domain-name>/giscus_light.css`, replace `<your-domain-name>` with you domain name, same as `base_url` in `config.toml`
 
@@ -189,20 +206,22 @@ Copy the contents of `myblog/themes/serene/config.example.toml` to `myblog/confi
 
 ### Analytics
 
-- To place scripts for analytics tools (such as Google Anayltics, Umami, etc.), you can create a new `myblog/templates/_head_extend.html` and put the corresponding content in it. The content of this file will be added to the html head of each page
+- To place scripts for analytics tools (such as Google Anayltics, Umami, etc.), you can create a new `myblog/templates/_head_extend.html` and put the corresponding content in it. The content of this file will be added to the html head of each page.
+- [Partytown](https://partytown.builder.io/) is built-in, so it is recommended to use it for analytics tools to speed up loading times.
 
 ### Customization
+To customise the style, it is recommended to use inline Tailwind classes. Don't forget to run `npx run tw` when editing HTML files or editing CSS files.
 
-- Copy `myblog/themes/serene/sass/main.scss` to `myblog/sass/main.scss`, several variable values at the top of the file are used to control styles, such as the theme color `--primary-color`, modify it if you want
+- Copy `myblog/themes/serene/style/styles.css` to `myblog/style/style.css`. You can use [Tailwind functions and directives](https://tailwindcss.com/docs/functions-and-directives) in the file. You need to also run `npx run tw` to apply these changes.
 
-- Serene uses the Signika font of [Google Fonts](https://fonts.google.com/) by default. If you want a different font, create a new `myblog/templates/_custom_font.html` and put the font link tags you copied from google fonts website into it, and then modify `--main-font` or `--code-font` in `myblog/sass/main.scss`. For performance reason, you may want to self-host font files (optional): 
+- Tranquil uses the Lato font of [Brick](https://brick.im/fonts/lato/) by default. If you want a different font, create a new `myblog/templates/_custom_font.html` and put the font link tags you copied from google fonts website into it, and then modify `--main-font` or `--code-font` in `myblog/sass/main.scss`. For performance reasons, you may want to self-host (Google) font files (optional): 
   1. Open [google-webfonts-helper](https://gwfh.mranftl.com) and choose your font
   2. Modify `Customize folder prefix` of step 3 to `/font/` and then copy the css
   3. Replace the content of `myblog/templates/_custom_font.html` with a `<style> </style>` tag, with the css you just copied in it.
   4. Download step 4 font files and put them in `myblog/static/font/` folder
 
 
-- If you want to customize more, you only need to copy the files under the `templates`, `static`, `sass` directory in the corresponding `themes/serene` to the same name directory of myblog, and modify it. Be careful not to directly modify the files under the serene directory, because these modifications may cause conflicts if the theme is updated
+- If you want to customize more, you only need to copy the files under the `templates`, `static`, `sass` directory in the corresponding `themes/tranquil` to the same name directory of myblog, and modify it. Be careful not to directly modify the files under the Tranquil directory, because these modifications may cause conflicts if the theme is updated
 
 ## Writing
 
@@ -240,13 +259,13 @@ Copy the contents of `myblog/themes/serene/config.example.toml` to `myblog/confi
 
 - You can add a `<!-- more -->` line, the content before it will become the summary/description of the post. You can set `truncate_summary = true` in `myblog/content/blog/_index.md` to remove the summary from the post webpage.
 
-- Post files are created under `myblog/content/blog`, after done writing, change `draft` to false
+- Put your post files in the `myblog/content/blog` folder. If you want your posts to stay hidden, set `draft` to `true`.
 
 ### Shortcodes
 
 - Zola supports 'shortcodes', which can add some extra styles or templates for in addition to the standard markdown format
 
-- Zola support some [annotations for code blocks](https://www.getzola.org/documentation/content/syntax-highlighting/#annotations). Serene add another one to show the file name by a `codeblock` shortcode, use it like this:
+- Zola support some [annotations for code blocks](https://www.getzola.org/documentation/content/syntax-highlighting/#annotations). Tranquil adds another one to show the file name by a `codeblock` shortcode:
 
   ```md
   {% codeblock(name="path/to/file") %}
@@ -254,7 +273,7 @@ Copy the contents of `myblog/themes/serene/config.example.toml` to `myblog/confi
   {% end %}
   ```
 
-- In addition to `![img](/path/to/img)` of standard markdown, Serene also supports a `figure` shortcode to add some explanatory text to the image, the format is as follows:
+- In addition to the `![img](/path/to/img)` of standard markdown, Tranquil also supports a `figure` shortcode to adds some explanatory text to the image, the format is as follows:
 
   ```md
   {{ figure(src="path/to/img", alt="alt text", caption="caption text") }}
@@ -270,7 +289,7 @@ Copy the contents of `myblog/themes/serene/config.example.toml` to `myblog/confi
 
 ### Callout
 
-- Serene also uses shortcodes to implement callouts, the effect is shown in [this page](https://serene-demo-site.vercel.app/blog/callouts) of the demo site, there are currently 6 types: `note` `important ` `warning` `alert` `question` `tip`, the format is as follows, the header attribute is optional:
+- Tranquil also uses shortcodes to implement callouts. You can see callouts in action on [this page](https://teadrinkingprogrammer.github.io/tranquil-demo/blog/callouts/) of the demo site. There are currently 6 types: `note` `important ` `warning` `alert` `question` `tip`. The format is as follows (the header attribute is optional):
 
   ```md
   {% note(header="Note") %}
@@ -282,10 +301,11 @@ Copy the contents of `myblog/themes/serene/config.example.toml` to `myblog/confi
 
 ### KaTeX
 
-- Set `math = true` in the front matter to enable [KaTeX](https://katex.org/) support
+- Set `math = true` in the front matter to enable [KaTeX](https://katex.org/) support.
 
 - Inline formula `$...$`, block-level formula `$$...$$`
 
+I personally do not use much math in my posts, so if you notice some funky formatting, please make an issue.
 ### Mermaid
 
 - Set `mermaid = true` in the front matter to enable [Mermaid](https://github.com/mermaid-js/mermaid) support, and then insert a chart in the following format:
@@ -300,10 +320,29 @@ Copy the contents of `myblog/themes/serene/config.example.toml` to `myblog/confi
   {% end %}
   ```
 
-## Build & Deploy
+I also don't use Mermaid much myself, so if something is of, please make an issue.
+
+# Development
+I personally use Bun/bunx, but NPM, Yarn, PNPM or any other package manager will work just fine as well.
+I have purposefully ignored all lock files, because the package.json is only used to run 2 compilation commands.
+
+## First setup
+
+Copy Partytown to the static folder (tranquil folder):
+```sh
+npx run partytown
+```
+
+## Local build
 
 Local preview:
 
+Run Tailwind with --watch flag in one console (tranquil folder):
+```sh
+npx run tw
+```
+
+Serve Zola (root folder)
 ```sh
 zola serve
 ```
@@ -314,12 +353,16 @@ Build the site:
 zola build
 ```
 
-To deploy a static site, please refer to zola's [documentation about deployment](https://www.getzola.org/documentation/deployment/overview/)
+## Deploy
+
+For deployment, you can use Zolas documentation about [deployment](https://www.getzola.org/documentation/deployment/overview/).
+
+Next to the usual steps, you also need to run the tailwind compile command the partytown command. For inspiration, have a look at the [Github CI file](https://github.com/TeaDrinkingProgrammer/tranquil-demo/blob/main/.github/workflows/main.yml) of the demo website.
 
 ## Update
 
 Please check the CHANGELOG on github for breaking changes before updating the theme
 
 ```sh
-git submodule update --remote themes/serene
+git submodule update --remote themes/tranquil
 ```
