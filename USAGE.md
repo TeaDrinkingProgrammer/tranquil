@@ -212,7 +212,7 @@ To change the Icons for links (like social media), place a
 ### Customization
 To customise the style, it is recommended to use inline Tailwind classes. Don't forget to run `npx run tw` when editing HTML files or editing CSS files.
 
-- Copy `myblog/themes/serene/style/styles.css` to `myblog/style/style.css`. You can use [Tailwind functions and directives](https://tailwindcss.com/docs/functions-and-directives) in the file. You need to also run `npx run tw` to apply these changes.
+- In most cases, you shouldn't have to edit the CSS override file. If you do want to edit the override CSS file directly, you need to edit it in `myblog/themes/tranquil/style/styles.css`. This is because Tailwind cannot compile files that may or may not exist.
 
 - Tranquil uses the Lato font of [Brick](https://brick.im/fonts/lato/) by default. If you want a different font, create a new `myblog/templates/_custom_font.html` and put the font link tags you copied from google fonts website into it, and then modify `--main-font` or `--code-font` in `myblog/sass/main.scss`. For performance reasons, you may want to self-host (Google) font files (optional): 
   1. Open [google-webfonts-helper](https://gwfh.mranftl.com) and choose your font
