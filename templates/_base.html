@@ -14,7 +14,16 @@ decoration-1 hover:decoration-2 decoration-sky-500 dark:decoration-sky-400" %}
   <link rel="icon" type="image/png" sizes="16x16" href="{{ config.base_url }}/img/favicon-16x16.png">
   <link rel="apple-touch-icon" sizes="180x180" href="{{ config.base_url }}/img/apple-touch-icon.png">
   <link href="{{ config.base_url }}/styles/styles.css" rel="stylesheet">
+  <script>
+  if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+    document.documentElement.classList.add('dark')
+    localStorage.setItem("theme", "dark")
+  } else {
+    document.documentElement.classList.remove('dark')
+    localStorage.setItem("theme", "light")
+  }
   
+  </script>
   {% block head %}{% endblock head %}
   {% include "_head_extend.html" %}
 </head>
