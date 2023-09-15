@@ -3,23 +3,23 @@
     <div class="flex flex-row justify-between max-w-prose m-auto px-5">
       <nav>
         {% if config.extra.home %}
-        <a class="text-xl" href="/">{{ config.extra.home }}</a>
+        <a class="text-xl" href="{{ config.base_url }}">{{ config.extra.home }}</a>
         {% else %}
-        <a class="text-xl" href="/">{{ config.extra.id }}</a>
+        <a class="text-xl" href="{{ config.base_url }}">{{ config.extra.id }}</a>
         {% endif %}
         
         <span class="text-xl">{{ config.extra.nav_separator }}</span>
         {% if section.path %}
-        <a class="text-xl" href="{{section.path}}">{{ section.path | replace(from="/", to="")}}</a>
+        <a class="text-xl" href="{{ config.base_url }}/{{section.path}}">{{ section.path | replace(from="/", to="")}}</a>
         {% endif %}
       </nav>
       <div class="flex flex-row gap-3">
         {% if section.path and section.path != "/projects/" %}
         {% set rss_icon = load_data(path="static/icon/rss.svg") %}
         {% if section.generate_feed -%}
-        <a href="/blog/{{ config.feed_filename }}" aria-label="rss feed">{{ rss_icon | safe }}</a>
+        <a href="{{ config.base_url }}/blog/{{ config.feed_filename }}" aria-label="rss feed">{{ rss_icon | safe }}</a>
         {% elif config.generate_feed -%}
-        <a href="/{{ config.feed_filename }}" aria-label="rss feed">{{ rss_icon | safe }}</a>
+        <a href="{{ config.base_url }}/{{ config.feed_filename }}" aria-label="rss feed">{{ rss_icon | safe }}</a>
         {% endif %}
         {% endif %}
 

@@ -1,5 +1,5 @@
 <figure>
-    <img src="./{{ src }}" {% if alt %} alt="{{ alt }}"{% endif %}>
+    <img src="{{ config.base_url }}/{{ src }}" {% if alt %} alt="{{ alt }}"{% endif %}>
     {% if via %}
     <figcaption class="flex justify-center italic"><a href="{{via}}">via</a></figcaption>
     {% else %}
