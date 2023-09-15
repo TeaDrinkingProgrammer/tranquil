@@ -257,7 +257,7 @@ Copy the contents of `myblog/themes/serene/config.example.toml` to `myblog/confi
 - In addition to `![img](/path/to/img)` of standard markdown, Serene also supports a `figure` shortcode to add some explanatory text to the image, the format is as follows:
 
   ```md
-  {{ figure(src="/path/to/img", alt="alt text", caption="caption text") }}
+  {{ figure(src="./path/to/img", alt="alt text", caption="caption text") }}
   ```
 
   This will be displayed as `<figure></figure>` in HTML on the web page instead of `<img>`, and the content of the caption will be centered below the image. The alt attribute is optional but recommended to help enhance accessibility
@@ -265,7 +265,7 @@ Copy the contents of `myblog/themes/serene/config.example.toml` to `myblog/confi
   Adding attribution information to images is very common, you can directly use the `via` attribute, which will display a link named via below the image:
 
   ```md
-  {{ figure(src="/path/to/img", alt="some alt text", via="https://example.com") }}
+  {{ figure(src="./path/to/img", alt="some alt text", via="https://example.com") }}
   ```
 
 ### Callout
