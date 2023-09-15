@@ -61,7 +61,7 @@
           <div class="flex gap-2">
             {% for tag in page.taxonomies.tags -%}
             {% set tag_slugify = tag | slugify -%}
-            <a class="{{ tl_link }}" href="{{ config.base_url ~ '/tags/' ~ tag_slugify }}"># {{ tag }}</a>
+            <a class="text-lg {{ tl_link }}" href="{{ config.base_url ~ '/tags/' ~ tag_slugify }}"># {{ tag }}</a>
             {%- endfor %}
           </div>
           {% endif %}
@@ -97,7 +97,7 @@
             <ul class="flex flex-col gap-2 pl-2 pt-3">
               {% for h3 in h2.children %}
               <li>
-                <a class="{{ tl_link }}" href="#{{ h3.id | safe }}">{{ h3.title }}</a>
+                <a class=" text-lg {{ tl_link }}" href="#{{ h3.id | safe }}">{{ h3.title }}</a>
               </li>
               {% endfor %}
             </ul>

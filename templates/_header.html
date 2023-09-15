@@ -1,4 +1,4 @@
-<header {% if config.extra.blur_effect %} class="backdrop-blur-sm" {% endif %}>
+<header>
   <div class="bg-stone-300 dark:bg-stone-700 py-2">
     <div class="flex flex-row justify-between max-w-prose m-auto px-5">
       <nav>
@@ -10,7 +10,7 @@
         
         <span class="text-xl">{{ config.extra.nav_separator }}</span>
         {% if section.path %}
-        <a class="text-xl" href="/blog">{{ section.path | replace(from="/", to="")}}</a>
+        <a class="text-xl" href="{{section.path}}">{{ section.path | replace(from="/", to="")}}</a>
         {% endif %}
       </nav>
       <div class="flex flex-row gap-3">
