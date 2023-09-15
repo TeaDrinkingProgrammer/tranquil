@@ -9,7 +9,7 @@
     "tailwindcss": "^3.3.3"
   },
   "scripts": {
-    "tw": "tailwindcss -i styles/styles.css -i ../../styles/styles.css -o static/styles/styles.css --watch",
+    "tw": "tailwindcss -i styles/styles.css -o static/styles/styles.css --watch",
     "lint": "eslint --ext .html --ext .js . --fix",
     "partytown": "partytown copylib static/~partytown"
   }
