@@ -139,7 +139,7 @@
 {% endblock content %}
 
 {% block script %}
-<script src="./js/lightense.min.js"></script>
+<script src="{{ config.base_url }}/js/lightense.min.js"></script>
 {% if page.extra.mermaid %}
 <script type="module">
   import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
