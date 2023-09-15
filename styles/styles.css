@@ -2,3 +2,64 @@
 @tailwind components;
 @tailwind utilities;
 @import url("https://brick.freetls.fastly.net/Lato:400");
+
+/* I mostly use this for math like exponents and stuff */
+/* font-size: 75%; line-height: 0; position: relative; vertical-align: baseline; */
+sub, sup { 
+    all:unset;
+    @apply text-base;
+}
+
+sup { top: -0.3em; vertical-align: super;}
+sub { bottom: -0.25em; vertical-align: sub;}
+
+/* Sadly need to resort to raw css for the footnotes */
+.footnote-definition {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    @apply gap-1;
+}
+
+.footnote-definition-label::after {
+    content: ".";
+}
+
+code td {
+    padding: 0px !important;
+}
+
+code tr {
+    border-bottom-width: 0px !important;
+}
+
+code table {
+    margin-top: 0px !important;
+    margin-bottom: 0px !important;
+}
+
+/* Copy button css magic */
+.copy {
+    z-index: 9;
+    position:absolute;
+    right: .6em;
+    top: .6em;
+}
+.codeblock {
+    position: relative;
+}
+@layer components {
+
+    .footnote-definition-label {
+        position: static;
+        line-height: inherit;
+        font-size: 1em;
+    }
+
+    code mark {
+        all: unset;
+        @apply bg-slate-500;
+        @apply text-white;
+        @apply block;
+    }
+}

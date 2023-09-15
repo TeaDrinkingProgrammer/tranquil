@@ -1,5 +1,3 @@
-import { Lightense } from "./lightense.min";
-
 /* dark mode */
 const themeToggle = document.querySelector("#theme-toggle");
 const preferDark = window.matchMedia("(prefers-color-scheme: dark)");
@@ -143,10 +141,11 @@ if (document.getElementById("post") !== null) {
       window.scrollTo({
         top:
           document
-            .querySelector(`.footnote-reference a[href="#${footnote.id}"]`)
+            .querySelector(`a[href="#${footnote.id}"]`)
             .getBoundingClientRect().top +
           window.scrollY -
-          50,
+          100,
+        behavior: "smooth"
       }),
     );
     footnote.appendChild(backlink);

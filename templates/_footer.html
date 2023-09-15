@@ -1,7 +1,10 @@
-<footer class="text-stone-400 dark:text-stone-400 flex flex-row justify-between py-16">
-  <div class="">
-    {{ config.extra.footer_copyright | trim | markdown | safe }}
+<footer class="text-stone-400 dark:text-stone-400 flex flex-row justify-between my-16">
+  {% if config.extra.footer_copyright %}
+  <div class="flex justify-between">
+    {% set footer_copyright = config.extra.footer_copyright | trim %}
+    {{ footer_copyright ~ "&nbsp;" | markdown | safe }} 
   </div>
+  {% endif %}
   {% if config.extra.footer_credits %}
   <div class="">
     powered by
