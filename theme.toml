@@ -1,5 +1,4 @@
 name = "tranquil"
-version = 0.1
 description = "A blog theme for zola, simple and clean"
 license = "MIT"
 homepage = "https://github.com/TeaDrinkingProgrammer/tranquil"
@@ -10,4 +9,7 @@ demo = "https://teadrinkingprogrammer.github.io/tranquil-demo/"
 name = "TeaDrinkingProgrammer"
 homepage = "https://github.com/TeaDrinkingProgrammer"
 
-[extra]
+[original]
+author = "isunjn"
+homepage = "https://github.com/isunjn"
+repo = "https://github.com/isunjn/serene"
