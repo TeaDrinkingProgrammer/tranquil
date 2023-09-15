@@ -58,8 +58,8 @@ code table {
 
     code mark {
         all: unset;
-        @apply bg-slate-500;
-        @apply text-white;
+        @apply dark:bg-stone-700;
+        @apply bg-stone-300;
         @apply block;
     }
 }

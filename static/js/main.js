@@ -3,11 +3,12 @@ const LIGHT_THEME = "light";
 const DARK_THEME = "dark";
 
 const themeToggle = document.querySelector("#theme-toggle");
-const currentTheme = localStorage.getItem("theme")
+const currentTheme = localStorage.getItem("theme");
 const preferDark = window.matchMedia("(prefers-color-scheme: dark)");
 
-toggleGiscusTheme(currentTheme)
-setThemeToggle(currentTheme)
+toggleGiscusTheme(currentTheme);
+setThemeToggle(currentTheme);
+setCodeHighlightTheme(currentTheme);
 
 themeToggle.addEventListener("click", () =>
   toggleTheme(localStorage.getItem("theme") == DARK_THEME ? LIGHT_THEME : DARK_THEME),
@@ -22,8 +23,14 @@ function toggleTheme(theme) {
   
   localStorage.setItem("theme", theme);
   
-  setThemeToggle(theme)
+  setThemeToggle(theme);
   toggleGiscusTheme(theme);
+  setCodeHighlightTheme(theme);
+}
+
+function setCodeHighlightTheme(theme) {
+  const hlLink = document.querySelector('link#hl');
+  if (hlLink) hlLink.href = `/hl-${theme}.css`;
 }
 
 function setThemeToggle(theme) {

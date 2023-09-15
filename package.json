@@ -9,8 +9,8 @@
     "tailwindcss": "^3.3.3"
   },
   "scripts": {
-    "tw": "bun x tailwindcss -i styles/styles.css -o static/styles/styles.css --watch",
-    "lint": "bun x eslint --ext .html --ext .js . --fix",
-    "partytown": "bun x partytown copylib static/~partytown"
+    "tw": "tailwindcss -i styles/styles.css -o static/styles/styles.css --watch",
+    "lint": "eslint --ext .html --ext .js . --fix",
+    "partytown": "partytown copylib static/~partytown"
   }
 }
