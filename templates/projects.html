@@ -8,7 +8,7 @@
 {% block content %}
 {% include "_header.html" %}
 <div id="proj-wrapper" class="flex items-center justify-center">
-  <main class="flex flex-col max-w-prose">
+  <main class="flex flex-col max-w-prose pt-7">
     {% set data = load_data(path="content/projects/data.toml", format="toml") %}
     {% for proj in data.project %}
     <div class="flex flex-col gap-1 py-3">
