@@ -1,7 +1,6 @@
 {
   "name": "tranquil-demo",
   "devDependencies": {
-    "@builder.io/partytown": "^0.8.1",
     "@tailwindcss/typography": "^0.5.10",
     "eslint": "^8.49.0",
     "eslint-plugin-html": "^7.1.0",
@@ -10,7 +9,6 @@
   },
   "scripts": {
     "tw": "tailwindcss -i styles/styles.css -o static/styles/styles.css --watch",
-    "lint": "eslint --ext .html --ext .js . --fix",
-    "partytown": "partytown copylib static/~partytown"
+    "lint": "eslint --ext .html --ext .js . --fix"
   }
 }
