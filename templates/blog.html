@@ -8,7 +8,7 @@
 {% block content %}
 {% include "_header.html" %}
 <div class="flex items-center justify-center">
-  <div class="py-24 p-6 max-w-prose">
+  <div class="py-7 p-6 max-w-prose">
     <main class="flex flex-col gap-5">
       {% if config.extra.blog_categorized %}
       {% for category,posts in section.pages | group_by(attribute="taxonomies.categories.0") -%}
