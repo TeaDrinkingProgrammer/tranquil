@@ -207,7 +207,6 @@ To change the Icons for links (like social media), place a
 ### Analytics
 
 - To place scripts for analytics tools (such as Google Anayltics, Umami, etc.), you can create a new `myblog/templates/_head_extend.html` and put the corresponding content in it. The content of this file will be added to the html head of each page.
-- [Partytown](https://partytown.builder.io/) is built-in, so it is recommended to use it for analytics tools to speed up loading times.
 
 ### Customization
 To customise the style, it is recommended to use inline Tailwind classes. Don't forget to run `npx run tw` when editing HTML files or editing CSS files.
@@ -326,13 +325,6 @@ I also don't use Mermaid much myself, so if something is of, please make an issu
 I personally use Bun/bunx, but NPM, Yarn, PNPM or any other package manager will work just fine as well.
 I have purposefully ignored all lock files, because the package.json is only used to run 2 compilation commands.
 
-## First setup
-
-Copy Partytown to the static folder (tranquil folder):
-```sh
-npx run partytown
-```
-
 ## Local build
 
 Local preview:
@@ -357,7 +349,7 @@ zola build
 
 For deployment, you can use Zolas documentation about [deployment](https://www.getzola.org/documentation/deployment/overview/).
 
-Next to the usual steps, you also need to run the tailwind compile command the partytown command. For inspiration, have a look at the [Github CI file](https://github.com/TeaDrinkingProgrammer/tranquil-demo/blob/main/.github/workflows/main.yml) of the demo website.
+Next to the usual steps, you also need to run the tailwind compile command. For inspiration, have a look at the [Github CI file](https://github.com/TeaDrinkingProgrammer/tranquil-demo/blob/main/.github/workflows/main.yml) of the demo website.
 
 ## Update
 
