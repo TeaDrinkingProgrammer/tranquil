@@ -9,19 +9,19 @@ A blog theme for [Zola](https://www.getzola.org). Simple, elegant and uses Tailw
 
 ## Features
 
-- A simple and elegant design
+- A simple and elegant design.
 - Projects page: display a list of the projects you have worked on with links.
 - Theme toggle: switch between light and dark theme regardless of your browser preference.
-- Image zooming using [Lightense](https://github.com/sparanoid/lightense-images): zoom in on images by clicking on them
-- Out-of-date alert: show alerts when your post is outdated
+- Image zooming using [Lightense](https://github.com/sparanoid/lightense-images): zoom in on images by clicking on them.
+- Out-of-date alert: show alerts when your post is outdated.
 - Callouts (note, warning, alert, etc.) that can be used right in Markdown.
-- Comments using [Giscus](https://giscus.app)
-- Mathematical notations using [KaTeX](https://katex.org)
-- Diagrams and visualizations using [Mermaid](https://github.com/mermaid-js/mermaid)
+- Comments using [Giscus](https://giscus.app).
+- Mathematical notations using [KaTeX](https://katex.org).
+- Diagrams and visualizations using [Mermaid](https://github.com/mermaid-js/mermaid).
 
 ## Shoutouts
 
-This theme wouldn't have existed without [Isunjns Serene theme](https://github.com/isunjn/serene). It's a great theme, so go check that one out as well
+This theme wouldn't have existed without [Isunjns Serene theme](https://github.com/isunjn/serene). It's a great theme, so go check that one out as well.
 
 When I doubted about layout, I always went to look at [FasterThanLimes blog](fasterthanli.me) to see how he did it.
 
@@ -35,8 +35,8 @@ The main and pretty much only difference between Tranquil and Serene is that the
 
 ## Usage
 
-- Check the [USAGE.md](https://github.com/isunjn/serene/blob/latest/USAGE.md) of `main` branch
+- Check the [USAGE.md](https://github.com/isunjn/serene/blob/latest/USAGE.md) of `main` branch.
 
 ## Contributing
 
-- Before you make any non-trivial changes, consider opening an issue so we can discuss the change
+- Before you make any non-trivial changes, consider opening an issue so we can discuss the change.
