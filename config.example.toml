@@ -22,10 +22,10 @@ highlight_themes_css = [
     { theme = "tranquil-dark", filename = "hl-dark.css"},
 ]
 render_emoji = false
-external_links_target_blank = false
+external_links_target_blank = true
 external_links_no_follow = true
 external_links_no_referrer = true
-smart_punctuation = false
+smart_punctuation = true
 
 [slugify]
 paths = "on"
@@ -46,7 +46,7 @@ links = [                             # Your links
     { name = "Email", icon = "email", url = "mailto:<your-email-address>" },
 ]
 
-nav_separator = "::"
+nav_separator = " > "
 
 display_id = true                     # Display your id on homepage
 projects_page = true                  # Display projects page
