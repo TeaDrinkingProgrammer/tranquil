@@ -23,9 +23,9 @@ A blog theme for [Zola](https://www.getzola.org). Simple, elegant and uses Tailw
 
 This theme wouldn't have existed without [Isunjns Serene theme](https://github.com/isunjn/serene). It's a great theme, so go check that one out as well.
 
-When I doubted about layout, I always went to look at [FasterThanLimes blog](fasterthanli.me) to see how he did it.
+When I doubted about layout, I always went to look at [FasterThanLimes blog](https://fasterthanli.me) to see how he did it.
 
-Of course, this website wouldn't render without [Zola](getzola.org) and it wouldn't show anything without [Tailwind](https://tailwindcss.com/).
+Of course, this website wouldn't render without [Zola](https://getzola.org) and it wouldn't show anything without [Tailwind](https://tailwindcss.com/).
 
 ## Tranquil vs Serene
 
