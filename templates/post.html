@@ -120,8 +120,9 @@
 
     {% if page.extra.comment is defined %}{% set show_comment = page.extra.comment %}{% else %}{% set show_comment = config.extra.comment %}{% endif %}
     {% if show_comment %}
-    <div></div>
-    {% include "_giscus_script.html" %}
+    <div class="pt-16">
+      {% include "_giscus_script.html" %}
+    </div>
     {% endif %}
 
     {% if config.extra.back_to_top %}
