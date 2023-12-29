@@ -206,10 +206,10 @@ To change the Icons for links (like social media), place a
 
 ### Analytics
 
-- To place scripts for analytics tools (such as Google Anayltics, Umami, etc.), you can create a new `myblog/templates/_head_extend.html` and put the corresponding content in it. The content of this file will be added to the html head of each page.
+- To place scripts for analytics tools (such as Google Anayltics, Umami, Goatcounter, etc.), you can create a new `myblog/templates/_head_extend.html` and put the corresponding content in it. The content of this file will be added to the html head of each page.
 
 ### Customization
-To customise the style, it is recommended to use inline Tailwind classes. Don't forget to run `npx run tw` when editing HTML files or editing CSS files.
+To customise the style, it is recommended to use inline Tailwind classes. Don't forget to run `npx run tw` or `bun run tw` in the themes/tranquil folder when editing HTML files or editing CSS files.
 
 - In most cases, you shouldn't have to edit the CSS override file. If you do want to edit the override CSS file directly, you need to edit it in `myblog/themes/tranquil/style/styles.css`. This is because Tailwind cannot compile files that may or may not exist.
 

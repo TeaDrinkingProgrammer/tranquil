@@ -6,6 +6,7 @@ A blog theme for [Zola](https://www.getzola.org). Simple, elegant and uses Tailw
 ## Demo
 
 -  <https://teadrinkingprogrammer.github.io/tranquil-demo/>
+-  My own blog: <https://teadrinkingprogrammer.github.io>
 
 ## Features
 

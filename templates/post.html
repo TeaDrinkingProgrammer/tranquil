@@ -107,7 +107,7 @@
         </ul>
       </section>
       {% endif %}
-      <section aria-label="Article w-full" class="prose prose-slate dark:prose-invert prose-a:underline prose-a:underline-offset-4 prose-a:decoration-2 prose-a:decoration-sky-500 prose-a:dark:decoration-sky-400">
+      <section aria-label="Article" class="prose prose-slate dark:prose-invert prose-a:underline prose-a:underline-offset-4 prose-a:decoration-2 prose-a:decoration-sky-500 prose-a:dark:decoration-sky-400">
         {% if page.extra.truncate_summary is defined %}{% set truncate_summary = page.extra.truncate_summary %}{% elif section.extra.truncate_summary is defined %}{% set truncate_summary = section.extra.truncate_summary %}{% else %}{% set truncate_summary = false %}{% endif %}
 
         {% if truncate_summary == true and page.summary %}

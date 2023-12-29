@@ -1,16 +1,23 @@
-<footer class="text-stone-400 dark:text-stone-400 flex flex-row justify-between my-16">
+<footer class="text-stone-400 dark:text-stone-400 flex flex-row my-16 text-center">
   {% if config.extra.footer_copyright %}
-  <div class="flex justify-between">
+  <div class="basis-full">
     {% set footer_copyright = config.extra.footer_copyright | trim %}
-    {{ footer_copyright ~ "&nbsp;" | markdown | safe }} 
+    <p>{{ footer_copyright | safe}}</p>
   </div>
   {% endif %}
   {% if config.extra.footer_credits %}
-  <div class="">
-    powered by
-    <a class="text-stone-500 dark:text-stone-300 underline underline-offset-4 decoration-1 hover:decoration-2 decoration-sky-500 dark:decoration-sky-400" href="https://www.getzola.org" target="_blank" rel='noreferrer noopener'>zola</a>
-    and
-    <a class="text-stone-500 dark:text-stone-300 underline underline-offset-4 decoration-1 hover:decoration-2 decoration-sky-500 dark:decoration-sky-400" href="https://github.com/TeaDrinkingProgrammer/tranquil" target="_blank" rel='noreferrer noopener'>tranquil</a>
+  <div class="basis-full">
+    <div>
+      Powered by
+      <a class="text-stone-500 dark:text-stone-300 underline underline-offset-4 decoration-1 hover:decoration-2 decoration-sky-500 dark:decoration-sky-400" href="https://www.getzola.org" target="_blank" rel='noreferrer noopener'>zola</a>
+      and
+      <a class="text-stone-500 dark:text-stone-300 underline underline-offset-4 decoration-1 hover:decoration-2 decoration-sky-500 dark:decoration-sky-400" href="https://github.com/TeaDrinkingProgrammer/tranquil" target="_blank" rel='noreferrer noopener'>tranquil</a>
+    </div>
+  </div>
+  {% endif %}
+  {% if config.extra.footer_privacy %}
+  <div class="basis-full">
+    <a class="text-stone-500 dark:text-stone-300 underline underline-offset-4 decoration-1 hover:decoration-2 decoration-sky-500 dark:decoration-sky-400" href="{{ config.base_url }}/privacy" target="_blank" rel='noreferrer noopener'>{{ config.extra.footer_privacy_text }}</a>
   </div>
   {% endif %}
 </footer>

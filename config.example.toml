@@ -65,3 +65,6 @@ outdate_alert_text_after = " days ago and may be out of date."
 
 footer_copyright = "© 2023 <your-name>"
 footer_credits = true                 # Whether to show "Powered by Zola and Serene" in footer
+
+footer_privacy_text = "Privacy Policy"
+footer_privacy = false
