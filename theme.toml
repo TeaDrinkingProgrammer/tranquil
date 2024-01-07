@@ -8,6 +8,7 @@ demo = "https://teadrinkingprogrammer.github.io/tranquil-demo/"
 [author]
 name = "TeaDrinkingProgrammer"
 homepage = "https://github.com/TeaDrinkingProgrammer"
+repo = "https://github.com/TeaDrinkingProgrammer/tranquil"
 
 [original]
 author = "isunjn"

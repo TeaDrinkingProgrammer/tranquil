@@ -118,11 +118,20 @@
       </section>
     </article>
 
+    {% if page.extra.call_to_action_footer is defined %}{% set call_to_action_footer = page.extra.call_to_action_footer %}{% else %}{% set call_to_action_footer = config.extra.call_to_action_footer %}{% endif %}
+    {% if call_to_action_footer %}
+    <hr class="h-px my-10 bg-slate-700 dark:bg-slate-300">
+    <section aria-label="Subscription call-to-action" class="">
+        {% include "_call_to_action_footer.html" %}
+    </section>
+    {% endif %}
+
     {% if page.extra.comment is defined %}{% set show_comment = page.extra.comment %}{% else %}{% set show_comment = config.extra.comment %}{% endif %}
     {% if show_comment %}
-    <div class="pt-16">
+    <hr class="h-px my-10 bg-slate-700 dark:bg-slate-300">
+    <section aria-label="Comment section">
       {% include "_giscus_script.html" %}
-    </div>
+    </section>
     {% endif %}
 
     {% if config.extra.back_to_top %}

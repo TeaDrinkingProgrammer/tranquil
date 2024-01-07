@@ -204,9 +204,45 @@ To change the Icons for links (like social media), place a
 
 - `comment = true` in `config.toml` sets all posts to enable comments, you can set `comment = false` under `[extra]` in the front matter of the post to control whether a specific post displays comments
 
+### Call to Action footer
+You can enable a "Call to action footer" for your blogs. This is a place to put an option for readers to subscribe to RSS, email etc.
+
+Enable it by setting `call_to_action_footer = true` in `config.toml`. Add text to the footer using `call_to_action_footer_text`. You need to make a template yourself by making a file called `_call_to_action_footer` in the templates folder. This is an example of how you can use this template:
+
+```html
+<div class="flex flex-col gap-8">
+    {% if page.extra.call_to_action_footer_text is defined %}{% set call_to_action_footer_text = page.extra.call_to_action_footer_text %}{% else %}{% set call_to_action_footer_text = config.extra.call_to_action_footer_text %}{% endif %}
+    <p class="[&>a]:underline [&>a]:underline-offset-4 [&>a]:decoration-2 [&>a]:decoration-sky-500 [&>a]:dark:decoration-sky-400">{{ call_to_action_footer_text | safe }} </p>
+    <div class="flex gap-5">
+        <form
+        class="flex flex-col gap-2 w-1/2"
+        >
+            <input aria-label="Email input field" class="p-2 bg-stone-300 dark:bg-stone-700n placeholder:text-slate-700 dark:placeholder:text-slate-900" placeholder="Enter your email address"  type="email" name="email" id="bd-email" />
+            
+            <input class="rounded-md text-black dark:bg-sky-600 p-2 bg-sky-500" type="submit" value="Subscribe" />
+        </form>
+        <div class="flex justify-center items-center w-1/2">
+            {% set rss_icon = load_data(path="static/icon/rss.svg") %}
+            {% if section.generate_feed -%}
+            <a class="" href="{{ config.base_url }}/blog/{{ config.feed_filename }}" aria-label="rss feed">{{ rss_icon | safe }}</a>
+            {% elif config.generate_feed -%}
+            <a class="" href="{{ config.base_url }}/{{ config.feed_filename }}" aria-label="rss feed">{{ rss_icon | safe }}</a>
+            {% endif %}
+        </div>
+    </div>
+</div>
+```
+
+Example of the config.toml:
+```
+call_to_action_footer_text = "Did you like this blogpost? Then consider subscribing via email or RSS. The email newsletter uses <a href=\"https://www.linktomailprovider.com" target=\"_blank\"> Mailprovider</a>."
+
+call_to_action_footer = true
+```
+
 ### Analytics
 
-- To place scripts for analytics tools (such as Google Anayltics, Umami, Goatcounter, etc.), you can create a new `myblog/templates/_head_extend.html` and put the corresponding content in it. The content of this file will be added to the html head of each page.
+- To place scripts for analytics tools (such as Google Analytics, Umami, Goatcounter, etc.), you can create a new `myblog/templates/_head_extend.html` and put the corresponding content in it. The content of this file will be added to the html head of each page.
 
 ### Customization
 To customise the style, it is recommended to use inline Tailwind classes. Don't forget to run `npx run tw` or `bun run tw` in the themes/tranquil folder when editing HTML files or editing CSS files.

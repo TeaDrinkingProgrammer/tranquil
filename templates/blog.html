@@ -15,20 +15,20 @@
       <h1 class="text-2xl">{{ category }}</h1>
       <div class="flex flex-col gap-5">
         {% for post in posts %}
-        <a href="{{ post.permalink }}">
-          <span class="{{ tl_link }}">{{ post.title }}</span>
+        <div>
+          <a href="{{ post.permalink }}" class="{{ tl_link }}">{{ post.title }}</a>
           <span class="text-black dark:text-white text-lg pl-2">{{ post.date | date}}</span>
-        </a>
+        </div>
         {% endfor %}
       </div>
       {% endfor %}
       {% else %}
       <div class="flex flex-col gap-5">
         {% for post in section.pages %}
-        <a href="{{ post.permalink }}">
-          <span class="{{ tl_link }}">{{ post.title }}</span>
+        <div>
+          <a href="{{ post.permalink }}"class="{{ tl_link }}">{{ post.title }}</a>
           <span class="text-black dark:text-white text-lg pl-2">{{ post.date | date}}</span>
-        </a>
+        </div>
         {% endfor %}
       </div>
       {% endif %}

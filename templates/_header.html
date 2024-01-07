@@ -8,13 +8,18 @@
         <a class="text-xl" href="{{ config.base_url }}">{{ config.extra.id }}</a>
         {% endif %}
         
+        {% if page.path %}
+        {% set page_array = page.path | replace(from="/", to=" ") | trim | split(pat=" ") %}
+          {% for path in page_array %}
+          <span class="text-xl">{{ config.extra.nav_separator }}</span>
+          {% set current_path = page_array | slice(end=loop.index) | join(sep="/")%}
+          <a class="text-xl" href="{{ config.base_url }}/{{current_path}}">{{ path }}</a>
+          {% endfor %}
+        {% elif section.path %}
         <span class="text-xl">{{ config.extra.nav_separator }}</span>
-        {% if section.path %}
         <a class="text-xl" href="{{ config.base_url }}{{section.path}}">{{ section.path | replace(from="/", to="")}}</a>
         {% endif %}
-        {% if page.path %}
-        <a class="text-xl" href="{{ config.base_url }}{{page.path}}">{{ page.path | replace(from="/", to="")}}</a>
-        {% endif %}
+
       </nav>
       <div class="flex flex-row gap-3">
         {% if section.path and section.path != "/projects/" %}
