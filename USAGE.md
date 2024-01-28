@@ -127,7 +127,7 @@ To change the Icons for links (like social media), place a
 
 ### Code highlight
 
-- Copy `myblog/themes/tranquil/highlight_themes` directory to `myblog/highlight_themes`.
+- Copy `myblog/themes/tranquil/highlight_themes` directory to `myblog/highlight_themes`. Alternatively, use symlinks (mklink /H on windows, ln -s on Linux) to link the theme files. In this case, make a relative link from myblog/highlight_themes to ../themes/tranquil/highlight_themes/ (use \ for Windows) for both tranquil-light.tmTheme and tranquil-dark.tmTheme.
 
 - If you set `highlight_theme` in `config.toml` to one of Zola's [built-in highlight themes](https://www.getzola.org/documentation/getting-started/configuration/#syntax-highlighting), you will get that theme used in both light and dark mode.
 
