@@ -9,7 +9,9 @@
 <div class="flex items-center justify-center">
   <main class="py-24 p-6 max-w-prose">
     <section class="flex flex-row gap-3">
+      {% if not config.extra.avatar %}
       <img class="h-24" src="{{ config.base_url }}/{{ config.extra.avatar }}" alt="avatar">
+      {% endif %}
       <div class="flex flex-col gap-2" id="text">
         <div class="flex flex-col md:flex-row gap-2">
           <span>{{ config.extra.name }}</span>
