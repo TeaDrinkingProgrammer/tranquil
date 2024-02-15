@@ -10,9 +10,15 @@ decoration-1 hover:decoration-2 decoration-sky-500 dark:decoration-sky-400" %}
   <meta name="color-scheme" content="light dark">
   <title>{% block title %}{% endblock title %}</title>
   <meta name="description" content="{% block desc %}{% endblock desc %}">
-  <link rel="icon" type="image/png" sizes="32x32" href="{{ config.base_url }}/img/favicon-32x32.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="{{ config.base_url }}/img/favicon-16x16.png">
-  <link rel="apple-touch-icon" sizes="180x180" href="{{ config.base_url }}/img/apple-touch-icon.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/icons/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/icons/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/icons/favicon-16x16.png">
+  <link rel="manifest" href="/icons/site.webmanifest">
+  <link rel="mask-icon" href="/icons/safari-pinned-tab.svg" color="#5bbad5">
+  <link rel="shortcut icon" href="/icons/favicon.ico">
+  <meta name="msapplication-TileColor" content="#00aba9">
+  <meta name="msapplication-config" content="/icons/browserconfig.xml">
+  <meta name="theme-color" content="#ffffff">
   <link href="{{ config.base_url }}/styles/styles.css" rel="stylesheet">
   <script>
   if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {

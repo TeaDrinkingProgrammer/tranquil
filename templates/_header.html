@@ -1,33 +1,36 @@
 <header>
-  <div class="bg-stone-300 dark:bg-stone-700 py-2">
+  <div class="bg-stone-300 dark:bg-stone-700 py-1">
     <div class="flex flex-row justify-between max-w-prose m-auto px-5">
-      <nav>
-        {% if config.extra.home %}
-        <a class="text-xl" href="{{ config.base_url }}">{{ config.extra.home }}</a>
-        {% else %}
-        <a class="text-xl" href="{{ config.base_url }}">{{ config.extra.id }}</a>
+      <nav class="flex flex-row items-center gap-2">
+        {% if config.extra.avatar %}
+        <img class="h-12" src="{{ config.base_url }}/{{ config.extra.avatar }}" alt="avatar">
         {% endif %}
-        
-        {% if page.path %}
-        {% set page_array = page.path | replace(from="/", to=" ") | trim | split(pat=" ") %}
-          {% for path in page_array %}
+        <div>
+          {% if config.extra.home %}
+          <a class="text-xl" href="{{ config.base_url }}">{{ config.extra.home }}</a>
+          {% else %}
+          <a class="text-xl" href="{{ config.base_url }}">{{ config.extra.id }}</a>
+          {% endif %}
+          {% if page.path %}
+          {% set page_array = page.path | replace(from="/", to=" ") | trim | split(pat=" ") %}
+            {% for path in page_array %}
+            <span class="text-xl">{{ config.extra.nav_separator }}</span>
+            {% set current_path = page_array | slice(end=loop.index) | join(sep="/")%}
+            <a class="text-xl" href="{{ config.base_url }}/{{current_path}}">{{ path }}</a>
+            {% endfor %}
+          {% elif section.path %}
           <span class="text-xl">{{ config.extra.nav_separator }}</span>
-          {% set current_path = page_array | slice(end=loop.index) | join(sep="/")%}
-          <a class="text-xl" href="{{ config.base_url }}/{{current_path}}">{{ path }}</a>
-          {% endfor %}
-        {% elif section.path %}
-        <span class="text-xl">{{ config.extra.nav_separator }}</span>
-        <a class="text-xl" href="{{ config.base_url }}{{section.path}}">{{ section.path | replace(from="/", to="")}}</a>
-        {% endif %}
-
+          <a class="text-xl" href="{{ config.base_url }}{{section.path}}">{{ section.path | replace(from="/", to="")}}</a>
+          {% endif %}
+        </div>
       </nav>
-      <div class="flex flex-row gap-3">
+      <div class="flex flex-row items-center gap-3">
         {% if section.path and section.path != "/projects/" %}
         {% set rss_icon = load_data(path="static/icon/rss.svg") %}
         {% if section.generate_feed -%}
-        <a href="{{ config.base_url }}/blog/{{ config.feed_filename }}" aria-label="rss feed">{{ rss_icon | safe }}</a>
+        <a href="{{ config.base_url }}/blog/{{ config.feed_filename }}" aria-label="rss feed" target="_blank">{{ rss_icon | safe }}</a>
         {% elif config.generate_feed -%}
-        <a href="{{ config.base_url }}/{{ config.feed_filename }}" aria-label="rss feed">{{ rss_icon | safe }}</a>
+        <a href="{{ config.base_url }}/{{ config.feed_filename }}" aria-label="rss feed" target="_blank">{{ rss_icon | safe }}</a>
         {% endif %}
         {% endif %}
 
