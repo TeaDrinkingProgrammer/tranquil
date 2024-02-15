@@ -94,8 +94,7 @@ lang = 'en'
 +++
 ```
 
-Create a new directory `img` under `myblog/static` and place your favicon. You can use tools like [favicon.io](https://favicon.io/favicon-converter/) to generate it.
-
+Create a new directory `icons` under `myblog/static` and place your favicons. I recommend first compressing your logo using [TinyPNG]() and then using [RealFaviconGenerator](https://realfavicongenerator.net/) to generate your favicons. At the bottom of the selection screen, set the path to "icons" and paste your generated favicons in this folder.
 Also put your avatar picture file `avatar.webp` in this folder, preferably in webp format.
 
 ```
