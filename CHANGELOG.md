@@ -18,3 +18,8 @@ First release 🎉
 - Added support for a "call to action" footer in blogposts
 - Minor accessibility improvements.
 - Fixed a bug with the breadcrumbs
+
+## [0.3.1] - 2024-02-24
+- Added the avatar to the topbar. Added support for more types of favicons. Updated USAGE.md with Favicon info
+- Refactored components using prose and link styles.
+- Tweaked bio text to allow html and improve formatting.
