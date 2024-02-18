@@ -1,7 +1,7 @@
 <header>
   <div class="bg-stone-300 dark:bg-stone-700 py-1">
-    <div class="flex flex-row justify-between max-w-prose m-auto px-5">
-      <nav class="flex flex-row items-center gap-2">
+    <div class="row justify-between max-w-prose m-auto px-5">
+      <nav class="row items-center gap-2">
         {% if config.extra.avatar %}
         <img class="h-12" src="{{ config.base_url }}/{{ config.extra.avatar }}" alt="avatar">
         {% endif %}
@@ -24,7 +24,7 @@
           {% endif %}
         </div>
       </nav>
-      <div class="flex flex-row items-center gap-3">
+      <div class="row items-center gap-3">
         {% if section.path and section.path != "/projects/" %}
         {% set rss_icon = load_data(path="static/icon/rss.svg") %}
         {% if section.generate_feed -%}

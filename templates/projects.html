@@ -8,21 +8,21 @@
 {% block content %}
 {% include "_header.html" %}
 <div id="proj-wrapper" class="flex items-center justify-center">
-  <main class="flex flex-col max-w-prose pt-7">
+  <main class="col max-w-prose pt-7">
     {% set data = load_data(path="content/projects/data.toml", format="toml") %}
     {% for proj in data.project %}
-    <div class="flex flex-col gap-1 py-3">
+    <div class="col gap-1 py-3">
       <h1 class="text-2xl">{{ proj.name }}</h1>
       <p class="">{{ proj.desc | trim | markdown | safe }}</p>
-      <div class="flex flex-row justify-between">
-        <div class="flex flex-row gap-2 items-end">
+      <div class="row justify-between">
+        <div class="row gap-2 items-end">
           {% for tag in proj.tags %}
           <div class="text-sm dark:text-slate-400 text-slate-800"><span># </span>{{ tag }}</div>
           {% endfor %}
         </div>
-        <div class="flex flex-row gap-2">
+        <div class="row gap-2">
           {% for link in proj.links -%}
-          <a class="{{tl_link}}" href="{{ link.url }}" target="_blank" rel='noreferrer noopener'>{{ link.name }}</a>
+          <a class="tl-link" href="{{ link.url }}" target="_blank" rel='noreferrer noopener'>{{ link.name }}</a>
           {% endfor %}
         </div>
       </div>  

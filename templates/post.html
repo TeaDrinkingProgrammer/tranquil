@@ -44,10 +44,10 @@
     <div id="copy-cfg" style="display: none;" data-copy-icon="{{ copy_icon }}" data-check-icon="{{ check_icon }}"></div>
     {% endif %}
     {% set backlink_icon = load_data(path="static/icon/backlink.svg") %}
-    <article class="flex flex-col w-full" id="post" data-backlink-icon="{{ backlink_icon }}">
-      <section aria-label="Article Info" class="flex flex-col pt-7 gap-4 mb-10">
+    <article class="col w-full" id="post" data-backlink-icon="{{ backlink_icon }}">
+      <section aria-label="Article Info" class="col pt-7 gap-4 mb-10">
         <h1 class="text-2xl">{{ page.title }}</h1>
-        <div class="flex flex-row justify-between">
+        <div class="row justify-between">
           <div>
             <span id="publish" class="text-lg text-stone-400">{{ page.date | date }}</span>
             {% if page.updated and page.updated != page.date -%}
@@ -61,7 +61,7 @@
           <div class="flex gap-2">
             {% for tag in page.taxonomies.tags -%}
             {% set tag_slugify = tag | slugify -%}
-            <a class="text-lg {{ tl_link }}" href="{{ config.base_url ~ '/tags/' ~ tag_slugify }}"># {{ tag }}</a>
+            <a class="text-lg tl-link" href="{{ config.base_url ~ '/tags/' ~ tag_slugify }}"># {{ tag }}</a>
             {%- endfor %}
           </div>
           {% endif %}
@@ -71,7 +71,7 @@
   
         {% if show_outdate_alert -%}
         <div class="not-prose">
-          <blockquote id="outdate_alert" class="flex flex-row row gap-2 text-black dark:text-white p-2 outline outline-3 outline-fuchsia-500 dark:outline-fuchsia-600" 
+          <blockquote id="outdate_alert" class="row row gap-2 text-black dark:text-white p-2 outline outline-3 outline-fuchsia-500 dark:outline-fuchsia-600" 
             data-days="{{ outdate_alert_days }}"
             data-alert-text-before="{{ config.extra.outdate_alert_text_before }}"
             data-alert-text-after="{{ config.extra.outdate_alert_text_after }}">
@@ -89,15 +89,15 @@
       {% if show_toc and page.toc %}
       <section aria-label="Table of Contents" class="bg-stone-200 dark:bg-stone-800 p-4 rounded-lg mb-10">
         <h2 class="text-2xl pb-3">Contents:</h2>
-        <ul class="flex flex-col gap-3">
+        <ul class="col gap-3">
           {% for h2 in page.toc %}
           <li>
             <a class="text-black dark:text-white text-xl underline underline-offset-8 decoration-1 hover:decoration-2 decoration-sky-500 dark:decoration-sky-400" href="#{{ h2.id | safe }}">{{ h2.title }}</a>
             {% if h2.children %}
-            <ul class="flex flex-col gap-2 pl-2 pt-3">
+            <ul class="col gap-2 pl-2 pt-3">
               {% for h3 in h2.children %}
               <li>
-                <a class=" text-lg {{ tl_link }}" href="#{{ h3.id | safe }}">{{ h3.title }}</a>
+                <a class=" text-lg tl-link" href="#{{ h3.id | safe }}">{{ h3.title }}</a>
               </li>
               {% endfor %}
             </ul>
@@ -107,7 +107,7 @@
         </ul>
       </section>
       {% endif %}
-      <section aria-label="Article" class="prose prose-slate dark:prose-invert prose-a:underline prose-a:underline-offset-4 prose-a:decoration-2 prose-a:decoration-sky-500 prose-a:dark:decoration-sky-400">
+      <section aria-label="Article" class="tl-prose">
         {% if page.extra.truncate_summary is defined %}{% set truncate_summary = page.extra.truncate_summary %}{% elif section.extra.truncate_summary is defined %}{% set truncate_summary = section.extra.truncate_summary %}{% else %}{% set truncate_summary = false %}{% endif %}
 
         {% if truncate_summary == true and page.summary %}
