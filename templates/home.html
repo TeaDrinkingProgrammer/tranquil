@@ -8,31 +8,33 @@
 {% block content %}
 <div class="flex items-center justify-center">
   <main class="py-24 p-6 max-w-prose">
-    <section class="flex flex-row gap-3">
+    <section class="row gap-3">
       {% if config.extra.avatar %}
         <img class="h-24" src="{{ config.base_url }}/{{ config.extra.avatar }}" alt="avatar">
       {% endif %}
-      <div class="flex flex-col gap-2" id="text">
-        <div class="flex flex-col md:flex-row gap-2">
+      <div class="col gap-2" id="text">
+        <div class="col md:flex-row gap-2">
           <span>{{ config.extra.name }}</span>
           {% if config.extra.display_id -%}
           <span class="text-sky-600 dark:text-sky-300">@{{ config.extra.id }}</span>
           {% endif -%}
         </div>
-        <div> {{ config.extra.bio }} </div>
+        <div class="tl-prose [&>p:first-child]:mt-0"> 
+          {{ config.extra.bio | markdown | safe}}
+        </div>
       </div>
     </section>
-    <section class="flex flex-row justify-between py-4">
-      <div class="flex flex-row gap-3">
-        <a class="text-lg {{ tl_link }}" href="{{ config.base_url }}/blog">blog</a>
+    <section class="row justify-between py-4">
+      <div class="row gap-3">
+        <a class="text-lg tl-link" href="{{ config.base_url }}/blog">blog</a>
         
         {% if config.extra.projects_page -%}
-            <a class="text-lg {{ tl_link }}" href="{{ config.base_url }}/projects">projects</a>
+            <a class="text-lg tl-link" href="{{ config.base_url }}/projects">projects</a>
         {% endif -%}
       </div>
-      <div class="flex flex-row gap-2 h-6">
+      <div class="row gap-2 h-6">
         {% for link in config.extra.links -%}
-          <a class="text-lg {{ tl_link }}" href="{{ link.url }}" aria-label="{{ link.name }}" target="_blank" rel='noreferrer noopener'>
+          <a class="text-lg tl-link" href="{{ link.url }}" aria-label="{{ link.name }}" target="_blank" rel='noreferrer noopener'>
             {% set icon_path = "static/icon/" ~ link.icon ~ ".svg" %}
             {% set icon = load_data(path=icon_path) %}
             {{ icon | safe }}
@@ -40,12 +42,12 @@
         {% endfor %}
         {% set moon_icon = load_data(path="static/icon/moon.svg") %}
         {% set sun_icon = load_data(path="static/icon/sun.svg") %}
-        <button class="text-lg {{ tl_link }}" id="theme-toggle" aria-label="theme switch" data-moon-icon="{{ moon_icon }}" data-sun-icon="{{ sun_icon }}">
+        <button class="text-lg tl-link" id="theme-toggle" aria-label="theme switch" data-moon-icon="{{ moon_icon }}" data-sun-icon="{{ sun_icon }}">
           {{ moon_icon | safe }}
         </button>
       </div>
     </section>
-    <section class="mb-16 prose prose-slate dark:prose-invert prose-a:underline prose-a:underline-offset-4 prose-a:decoration-2 prose-a:decoration-sky-500 prose-a:dark:decoration-sky-400">
+    <section class="mb-16 tl-prose">
       {{ section.content | trim | safe }}
     </section>
     {% include "_footer.html" %}

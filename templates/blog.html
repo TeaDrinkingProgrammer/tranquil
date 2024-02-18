@@ -9,24 +9,24 @@
 {% include "_header.html" %}
 <div class="flex items-center justify-center">
   <div class="py-7 p-6 max-w-prose">
-    <main class="flex flex-col gap-5">
+    <main class="col gap-5">
       {% if config.extra.blog_categorized %}
       {% for category,posts in section.pages | group_by(attribute="taxonomies.categories.0") -%}
       <h1 class="text-2xl">{{ category }}</h1>
-      <div class="flex flex-col gap-5">
+      <div class="col gap-5">
         {% for post in posts %}
         <div>
-          <a href="{{ post.permalink }}" class="{{ tl_link }}">{{ post.title }}</a>
+          <a href="{{ post.permalink }}" class="tl-link">{{ post.title }}</a>
           <span class="text-black dark:text-white text-lg pl-2">{{ post.date | date}}</span>
         </div>
         {% endfor %}
       </div>
       {% endfor %}
       {% else %}
-      <div class="flex flex-col gap-5">
+      <div class="col gap-5">
         {% for post in section.pages %}
         <div>
-          <a href="{{ post.permalink }}"class="{{ tl_link }}">{{ post.title }}</a>
+          <a href="{{ post.permalink }}"class="tl-link">{{ post.title }}</a>
           <span class="text-black dark:text-white text-lg pl-2">{{ post.date | date}}</span>
         </div>
         {% endfor %}

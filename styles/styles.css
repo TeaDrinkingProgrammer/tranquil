@@ -62,4 +62,17 @@ code table {
         @apply bg-stone-300;
         @apply block;
     }
+    .tl-prose {
+        @apply prose prose-slate dark:prose-invert prose-a:underline prose-a:underline-offset-4 prose-a:decoration-2 prose-a:decoration-sky-500 prose-a:dark:decoration-sky-400
+    }
+    .tl-link {
+        @apply text-black dark:text-white underline underline-offset-8
+decoration-1 hover:decoration-2 decoration-sky-500 dark:decoration-sky-400
+    }
+    .row {
+        @apply flex flex-row
+    }
+    .col {
+        @apply flex flex-col
+    }
 }
