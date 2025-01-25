@@ -36,7 +36,7 @@ The main and pretty much only difference between Tranquil and Serene is that the
 
 ## Usage
 
-- Check the [USAGE.md](./usage.md) of `main` branch.
+- Check the [USAGE.md](./USAGE.md) of `main` branch.
 
 ## Contributing
 
