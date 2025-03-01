@@ -63,6 +63,9 @@ outdate_alert_days = 120              # How many days will a post be outdated by
 outdate_alert_text_before = "This article was last updated "
 outdate_alert_text_after = " days ago and may be out of date."
 
+# call_to_action_footer_text = "Call to action here"
+# call_to_action_footer = true
+
 footer_copyright = "© 2023 <your-name>"
 footer_credits = true                 # Whether to show "Powered by Zola and Serene" in footer
 
