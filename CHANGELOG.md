@@ -23,3 +23,13 @@ First release 🎉
 - Added the avatar to the topbar. Added support for more types of favicons. Updated USAGE.md with Favicon info
 - Refactored components using prose and link styles.
 - Tweaked bio text to allow html and improve formatting.
+
+## [0.4.0] - 2024-02-24
+- Update to the Zola version 0.20.0.
+- Remove feed.xml in favor of built-in atom.xml.
+- Add atom link to _base.html for automatic Atom feed detection.
+- Update dependencies
+
+### Breaking:
+- Requires Zola 0.20.0 ([see changelog](https://github.com/getzola/zola/blob/master/CHANGELOG.md#breaking)).
+- feed.xml is not a valid feed name anymore: feed_filenames should be left empty.
