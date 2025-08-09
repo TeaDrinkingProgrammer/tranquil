@@ -97,5 +97,6 @@ footnotes.forEach((footnote) => {
 
 /* img lightsense */
 window.addEventListener("load", () =>
+  // eslint-disable-next-line no-undef
   Lightense("article img", { background: "rgba(43, 43, 43, 0.19)" }),
 );

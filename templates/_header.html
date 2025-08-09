@@ -13,24 +13,29 @@
           {% endif %}
           {% if page.path %}
           {% set page_array = page.path | replace(from="/", to=" ") | trim | split(pat=" ") %}
-            {% for path in page_array %}
-            <span class="text-xl">{{ config.extra.nav_separator }}</span>
-            {% set current_path = page_array | slice(end=loop.index) | join(sep="/")%}
-            <a class="text-xl" href="{{ config.base_url }}/{{current_path}}">{{ path }}</a>
-            {% endfor %}
+          {% for path in page_array %}
+          <span class="text-xl">{{ config.extra.nav_separator }}</span>
+          {% set current_path = page_array | slice(end=loop.index) | join(sep="/")%}
+          <a class="text-xl" href="{{ config.base_url }}/{{current_path}}">{{ path }}</a>
+          {% endfor %}
           {% elif section.path %}
           <span class="text-xl">{{ config.extra.nav_separator }}</span>
-          <a class="text-xl" href="{{ config.base_url }}{{section.path}}">{{ section.path | replace(from="/", to="")}}</a>
+          <a class="text-xl" href="{{ config.base_url }}{{section.path}}">{{ section.path | replace(from="/",
+            to="")}}</a>
           {% endif %}
         </div>
       </nav>
       <div class="row items-center gap-3">
         {% if section.path and section.path != "/projects/" %}
         {% set rss_icon = load_data(path="static/icon/rss.svg") %}
-        {% if section.generate_feed -%}
-        <a href="{{ config.base_url }}/blog/{{ config.feed_filename }}" aria-label="rss feed" target="_blank">{{ rss_icon | safe }}</a>
-        {% elif config.generate_feed -%}
-        <a href="{{ config.base_url }}/{{ config.feed_filename }}" aria-label="rss feed" target="_blank">{{ rss_icon | safe }}</a>
+        {% if section.generate_feeds -%}
+        <a href="{{ config.base_url }}/blog/{{ config.feed_filenames | first }}" aria-label="atom feed"
+          target="_blank">{{
+          rss_icon | safe }}</a>
+        {% elif config.generate_feeds -%}
+        <a href="{{ config.base_url }}/{{ config.feed_filenames | first }}" aria-label="atom feed" target="_blank">{{
+          rss_icon
+          | safe }}</a>
         {% endif %}
         {% endif %}
 
