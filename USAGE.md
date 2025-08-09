@@ -155,11 +155,9 @@ To change the Icons for links (like social media), place a
 
 ### RSS
 
-- You can add rss to your site, Zola's default feed file is located in the root directory of the site, set `generate_feed = true` in `config.toml`, `feed_filename` can be set to `atom.xml` or `rss.xml ` , corresponding to two different rss file standards, set `generate_feed = false` in `myblog/content/blog/_index.md`
+- You can add RSS or Atom to your site: Zola's default feed file is located in the root directory of the site, set `generate_feeds = true` in `config.toml`. `feed_filenames` can be set to `[atom.xml]` or `[rss.xml]` , corresponding to two different feed file standards. I currently only support one or the other, since I only support Atom on my own blogs, PRs are welcome. Set `generate_feed = false` in `myblog/content/blog/_index.md` if you want to disable this feature.
 
-- The Tranquil theme looks more like a personal website, the posts are in the `/blog` directory, you may want the feed file to be in the `/blog` directory instead of the root directory, which requires you to set `generate_feed = false ` `feed_filename = "feed.xml"` in `config.toml`, and set `generate_feed = true` in `myblog/content/blog/_index.md`
-
-- `feed.xml` uses `title` and `description` from `myblog/content/blog/_index.md`, the other two use `config.toml`
+- The Tranquil theme looks more like a personal website, the posts are in the `/blog` directory. You may want the feed file to be in the `/blog` directory instead of the root directory, which requires you to set `generate_feeds = false ` `feed_filenames = "[atom.xml]"` in `config.toml`, and set `generate_feed = true` in `myblog/content/blog/_index.md`
 
 ### Projects page
 

@@ -19,14 +19,14 @@
   <meta name="theme-color" content="#ffffff">
   <link href="{{ config.base_url }}/styles/styles.css" rel="stylesheet">
   <script>
-  if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
-    document.documentElement.classList.add('dark')
-    localStorage.setItem("theme", "dark")
-  } else {
-    document.documentElement.classList.remove('dark')
-    localStorage.setItem("theme", "light")
-  }
-  
+    if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+      document.documentElement.classList.add('dark')
+      localStorage.setItem("theme", "dark")
+    } else {
+      document.documentElement.classList.remove('dark')
+      localStorage.setItem("theme", "light")
+    }
+
   </script>
   {% block head %}{% endblock head %}
   {% include "_head_extend.html" %}
@@ -34,6 +34,10 @@
 
 <body class="antialiased text-slate-700 dark:text-slate-300 bg-white dark:bg-stone-900">
   {% block content %}{% endblock content %}
+  {% block atom %}
+  <link rel="alternate" type="application/atom+xml" title="Atom" href="{{ get_url(path=" atom.xml",
+    trailing_slash=false) }}">
+  {% endblock %}
   {% block script %}{% endblock script %}
   <script src="{{ config.base_url }}/js/main.js"></script>
 </body>
