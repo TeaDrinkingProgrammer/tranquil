@@ -13,7 +13,7 @@ cd myblog
 Add the Tranquil theme:
 
 ```sh
-git submodule add -b latest https://github.com/teadrinkingprogrammer/tranquil.git themes/tranquil
+git submodule add https://github.com/teadrinkingprogrammer/tranquil.git themes/tranquil
 ```
 
 The myblog directory now looks like this:
